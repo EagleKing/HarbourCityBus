@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UISearchBarDelegate{
     var searchBar = UISearchBar()
-    var lineListEntity = LineListEntity()
+    var lineList = LineList()
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class ViewController: UIViewController,UISearchBarDelegate{
     }
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
     {
-        lineListEntity.startRequestWith(searchBar.text)
+        LineList.startRequestWith(searchBar.text)
     }
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
     {

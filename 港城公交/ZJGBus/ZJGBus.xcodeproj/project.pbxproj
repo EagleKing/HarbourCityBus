@@ -16,6 +16,14 @@
 		A973642C1D51C48500194CE7 /* ConstantAndThirdPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */; };
 		A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973642E1D51C65E00194CE7 /* BaseEntity.swift */; };
 		A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364301D51D1A500194CE7 /* LineListEntity.swift */; };
+		A97364411D533C4000194CE7 /* Reflect+ArcFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364361D533C4000194CE7 /* Reflect+ArcFile.swift */; };
+		A97364421D533C4000194CE7 /* Reflect+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364381D533C4000194CE7 /* Reflect+Parse.swift */; };
+		A97364431D533C4000194CE7 /* Reflect+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643A1D533C4000194CE7 /* Reflect+Convert.swift */; };
+		A97364441D533C4000194CE7 /* Reflect+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643C1D533C4000194CE7 /* Reflect+Class.swift */; };
+		A97364451D533C4000194CE7 /* Reflect+Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643D1D533C4000194CE7 /* Reflect+Other.swift */; };
+		A97364461D533C4000194CE7 /* Reflect+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643E1D533C4000194CE7 /* Reflect+Property.swift */; };
+		A97364471D533C4000194CE7 /* Reflect+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643F1D533C4000194CE7 /* Reflect+Type.swift */; };
+		A97364481D533C4000194CE7 /* Reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364401D533C4000194CE7 /* Reflect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +39,14 @@
 		A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantAndThirdPart.swift; sourceTree = "<group>"; };
 		A973642E1D51C65E00194CE7 /* BaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
 		A97364301D51D1A500194CE7 /* LineListEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineListEntity.swift; sourceTree = "<group>"; };
+		A97364361D533C4000194CE7 /* Reflect+ArcFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+ArcFile.swift"; sourceTree = "<group>"; };
+		A97364381D533C4000194CE7 /* Reflect+Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Parse.swift"; sourceTree = "<group>"; };
+		A973643A1D533C4000194CE7 /* Reflect+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Convert.swift"; sourceTree = "<group>"; };
+		A973643C1D533C4000194CE7 /* Reflect+Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Class.swift"; sourceTree = "<group>"; };
+		A973643D1D533C4000194CE7 /* Reflect+Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Other.swift"; sourceTree = "<group>"; };
+		A973643E1D533C4000194CE7 /* Reflect+Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Property.swift"; sourceTree = "<group>"; };
+		A973643F1D533C4000194CE7 /* Reflect+Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Type.swift"; sourceTree = "<group>"; };
+		A97364401D533C4000194CE7 /* Reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflect.swift; sourceTree = "<group>"; };
 		B051599968B1B2DB4C2AEFB3 /* Pods-ZJGBus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +100,8 @@
 		A97364171D51BFB900194CE7 /* ZJGBus */ = {
 			isa = PBXGroup;
 			children = (
+				A97364341D533C4000194CE7 /* Reflect */,
+				A97364331D533BE400194CE7 /* ThirdPart */,
 				A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */,
 				A973642D1D51C64F00194CE7 /* Model */,
 				A97364181D51BFB900194CE7 /* AppDelegate.swift */,
@@ -103,6 +121,60 @@
 				A97364301D51D1A500194CE7 /* LineListEntity.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A97364331D533BE400194CE7 /* ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdPart;
+			sourceTree = "<group>";
+		};
+		A97364341D533C4000194CE7 /* Reflect */ = {
+			isa = PBXGroup;
+			children = (
+				A97364351D533C4000194CE7 /* Coding */,
+				A97364371D533C4000194CE7 /* Dict2Model */,
+				A97364391D533C4000194CE7 /* Model2Dict */,
+				A973643B1D533C4000194CE7 /* Reflect */,
+				A97364401D533C4000194CE7 /* Reflect.swift */,
+			);
+			path = Reflect;
+			sourceTree = "<group>";
+		};
+		A97364351D533C4000194CE7 /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				A97364361D533C4000194CE7 /* Reflect+ArcFile.swift */,
+			);
+			path = Coding;
+			sourceTree = "<group>";
+		};
+		A97364371D533C4000194CE7 /* Dict2Model */ = {
+			isa = PBXGroup;
+			children = (
+				A97364381D533C4000194CE7 /* Reflect+Parse.swift */,
+			);
+			path = Dict2Model;
+			sourceTree = "<group>";
+		};
+		A97364391D533C4000194CE7 /* Model2Dict */ = {
+			isa = PBXGroup;
+			children = (
+				A973643A1D533C4000194CE7 /* Reflect+Convert.swift */,
+			);
+			path = Model2Dict;
+			sourceTree = "<group>";
+		};
+		A973643B1D533C4000194CE7 /* Reflect */ = {
+			isa = PBXGroup;
+			children = (
+				A973643C1D533C4000194CE7 /* Reflect+Class.swift */,
+				A973643D1D533C4000194CE7 /* Reflect+Other.swift */,
+				A973643E1D533C4000194CE7 /* Reflect+Property.swift */,
+				A973643F1D533C4000194CE7 /* Reflect+Type.swift */,
+			);
+			path = Reflect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +300,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */,
+				A97364431D533C4000194CE7 /* Reflect+Convert.swift in Sources */,
 				A973642C1D51C48500194CE7 /* ConstantAndThirdPart.swift in Sources */,
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
+				A97364481D533C4000194CE7 /* Reflect.swift in Sources */,
+				A97364451D533C4000194CE7 /* Reflect+Other.swift in Sources */,
+				A97364421D533C4000194CE7 /* Reflect+Parse.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
+				A97364411D533C4000194CE7 /* Reflect+ArcFile.swift in Sources */,
+				A97364441D533C4000194CE7 /* Reflect+Class.swift in Sources */,
+				A97364461D533C4000194CE7 /* Reflect+Property.swift in Sources */,
 				A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */,
+				A97364471D533C4000194CE7 /* Reflect+Type.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

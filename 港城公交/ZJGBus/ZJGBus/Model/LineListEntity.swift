@@ -22,19 +22,28 @@ class LineListEntity: BaseEntity
     private var runPathIds:String = ""
     private var endTime:String = ""
     private var startTime1:String = ""
-    func startRequestWith(name:String?)
+}
+class LineList:BaseEntity
+{
+    private var Lines = [LineListEntity]()
+    static func startRequestWith(name:String?)
     {
         
         if name != nil
         {
-            print(name)
-            Alamofire.request(.POST, BaseEntity.BASE_URL+"bus/allStationOfRPName", parameters: ["name":name!]).responseJSON(completionHandler:
-            { (request, reponse, result) in
-               print(result.data)
-               
-                
-            })
-            
+            Alamofire.request(.POST, BaseEntity.BASE_URL+"bus/allStationOfRPName", parameters: ["name":name!]).responseJSON(options:NSJSONReadingOptions.AllowFragments, completionHandler:
+                { (request, response, result) in
+                    if let value = result.value
+                    {
+                        
+                        let resultDic = value["result"]!
+                      
+                        let lineList = LineList.parse(dict: resultDic as! NSDictionary)
+                        
+                    
+                        print(lineList.Lines)
+                    }
+                })
         }
     }
 }
