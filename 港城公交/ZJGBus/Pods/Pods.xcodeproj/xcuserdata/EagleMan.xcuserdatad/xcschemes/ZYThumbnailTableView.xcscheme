@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5ED79A586BD326C9A74868A42B32833F'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = '56DFB9EDA65B70C43188BBD7808A675B'
+               BlueprintName = 'ZYThumbnailTableView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'ZYThumbnailTableView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

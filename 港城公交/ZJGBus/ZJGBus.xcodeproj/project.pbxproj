@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C66A51733518001844E910 /* Pods_ZJGBus.framework */; };
+		A917CA881D58836F00350647 /* ZYThumbnailTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */; };
+		A917CA891D58836F00350647 /* ZYThumbnailTableView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364181D51BFB900194CE7 /* AppDelegate.swift */; };
 		A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973641A1D51BFB900194CE7 /* ViewController.swift */; };
 		A973641E1D51BFB900194CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A973641C1D51BFB900194CE7 /* Main.storyboard */; };
@@ -16,19 +18,30 @@
 		A973642C1D51C48500194CE7 /* ConstantAndThirdPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */; };
 		A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973642E1D51C65E00194CE7 /* BaseEntity.swift */; };
 		A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364301D51D1A500194CE7 /* LineListEntity.swift */; };
-		A97364411D533C4000194CE7 /* Reflect+ArcFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364361D533C4000194CE7 /* Reflect+ArcFile.swift */; };
-		A97364421D533C4000194CE7 /* Reflect+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364381D533C4000194CE7 /* Reflect+Parse.swift */; };
-		A97364431D533C4000194CE7 /* Reflect+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643A1D533C4000194CE7 /* Reflect+Convert.swift */; };
-		A97364441D533C4000194CE7 /* Reflect+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643C1D533C4000194CE7 /* Reflect+Class.swift */; };
-		A97364451D533C4000194CE7 /* Reflect+Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643D1D533C4000194CE7 /* Reflect+Other.swift */; };
-		A97364461D533C4000194CE7 /* Reflect+Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643E1D533C4000194CE7 /* Reflect+Property.swift */; };
-		A97364471D533C4000194CE7 /* Reflect+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973643F1D533C4000194CE7 /* Reflect+Type.swift */; };
-		A97364481D533C4000194CE7 /* Reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364401D533C4000194CE7 /* Reflect.swift */; };
+		A9D946F41D584A28000DBD60 /* HE_Dict2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D946F11D584A28000DBD60 /* HE_Dict2Model.swift */; };
+		A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D946F21D584A28000DBD60 /* HE_Foundation.swift */; };
+		A9D946F61D584A28000DBD60 /* HE_Model2Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D946F31D584A28000DBD60 /* HE_Model2Dict.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A917CA8A1D58836F00350647 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A917CA891D58836F00350647 /* ZYThumbnailTableView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		40AB6EEEFA29BCDAA84F1D91 /* Pods-ZJGBus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.debug.xcconfig"; sourceTree = "<group>"; };
 		78C66A51733518001844E910 /* Pods_ZJGBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJGBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZYThumbnailTableView.framework; path = "/Users/eagle/Library/Developer/Xcode/DerivedData/ZJGBus-fxuurwmjcuazfwevsybzahhrtnjr/Build/Products/Debug-iphonesimulator/ZYThumbnailTableView/ZYThumbnailTableView.framework"; sourceTree = "<absolute>"; };
+		A917CA8B1D5884F500350647 /* ZJGBus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZJGBus-Bridging-Header.h"; sourceTree = "<group>"; };
 		A97364151D51BFB900194CE7 /* ZJGBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJGBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97364181D51BFB900194CE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A973641A1D51BFB900194CE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,14 +52,9 @@
 		A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantAndThirdPart.swift; sourceTree = "<group>"; };
 		A973642E1D51C65E00194CE7 /* BaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
 		A97364301D51D1A500194CE7 /* LineListEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineListEntity.swift; sourceTree = "<group>"; };
-		A97364361D533C4000194CE7 /* Reflect+ArcFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+ArcFile.swift"; sourceTree = "<group>"; };
-		A97364381D533C4000194CE7 /* Reflect+Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Parse.swift"; sourceTree = "<group>"; };
-		A973643A1D533C4000194CE7 /* Reflect+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Convert.swift"; sourceTree = "<group>"; };
-		A973643C1D533C4000194CE7 /* Reflect+Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Class.swift"; sourceTree = "<group>"; };
-		A973643D1D533C4000194CE7 /* Reflect+Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Other.swift"; sourceTree = "<group>"; };
-		A973643E1D533C4000194CE7 /* Reflect+Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Property.swift"; sourceTree = "<group>"; };
-		A973643F1D533C4000194CE7 /* Reflect+Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reflect+Type.swift"; sourceTree = "<group>"; };
-		A97364401D533C4000194CE7 /* Reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflect.swift; sourceTree = "<group>"; };
+		A9D946F11D584A28000DBD60 /* HE_Dict2Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HE_Dict2Model.swift; sourceTree = "<group>"; };
+		A9D946F21D584A28000DBD60 /* HE_Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HE_Foundation.swift; sourceTree = "<group>"; };
+		A9D946F31D584A28000DBD60 /* HE_Model2Dict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HE_Model2Dict.swift; sourceTree = "<group>"; };
 		B051599968B1B2DB4C2AEFB3 /* Pods-ZJGBus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A917CA881D58836F00350647 /* ZYThumbnailTableView.framework in Frameworks */,
 				0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,10 +91,12 @@
 		A973640C1D51BFB900194CE7 = {
 			isa = PBXGroup;
 			children = (
+				A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */,
 				A97364171D51BFB900194CE7 /* ZJGBus */,
 				A97364161D51BFB900194CE7 /* Products */,
 				2FB984831C8DEBCF22338FE4 /* Pods */,
 				2ECDE6DB68C429BECB88C51A /* Frameworks */,
+				A917CA8B1D5884F500350647 /* ZJGBus-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +111,6 @@
 		A97364171D51BFB900194CE7 /* ZJGBus */ = {
 			isa = PBXGroup;
 			children = (
-				A97364341D533C4000194CE7 /* Reflect */,
 				A97364331D533BE400194CE7 /* ThirdPart */,
 				A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */,
 				A973642D1D51C64F00194CE7 /* Model */,
@@ -126,55 +136,19 @@
 		A97364331D533BE400194CE7 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				A9D946F01D584A28000DBD60 /* HEExention */,
 			);
 			path = ThirdPart;
 			sourceTree = "<group>";
 		};
-		A97364341D533C4000194CE7 /* Reflect */ = {
+		A9D946F01D584A28000DBD60 /* HEExention */ = {
 			isa = PBXGroup;
 			children = (
-				A97364351D533C4000194CE7 /* Coding */,
-				A97364371D533C4000194CE7 /* Dict2Model */,
-				A97364391D533C4000194CE7 /* Model2Dict */,
-				A973643B1D533C4000194CE7 /* Reflect */,
-				A97364401D533C4000194CE7 /* Reflect.swift */,
+				A9D946F11D584A28000DBD60 /* HE_Dict2Model.swift */,
+				A9D946F21D584A28000DBD60 /* HE_Foundation.swift */,
+				A9D946F31D584A28000DBD60 /* HE_Model2Dict.swift */,
 			);
-			path = Reflect;
-			sourceTree = "<group>";
-		};
-		A97364351D533C4000194CE7 /* Coding */ = {
-			isa = PBXGroup;
-			children = (
-				A97364361D533C4000194CE7 /* Reflect+ArcFile.swift */,
-			);
-			path = Coding;
-			sourceTree = "<group>";
-		};
-		A97364371D533C4000194CE7 /* Dict2Model */ = {
-			isa = PBXGroup;
-			children = (
-				A97364381D533C4000194CE7 /* Reflect+Parse.swift */,
-			);
-			path = Dict2Model;
-			sourceTree = "<group>";
-		};
-		A97364391D533C4000194CE7 /* Model2Dict */ = {
-			isa = PBXGroup;
-			children = (
-				A973643A1D533C4000194CE7 /* Reflect+Convert.swift */,
-			);
-			path = Model2Dict;
-			sourceTree = "<group>";
-		};
-		A973643B1D533C4000194CE7 /* Reflect */ = {
-			isa = PBXGroup;
-			children = (
-				A973643C1D533C4000194CE7 /* Reflect+Class.swift */,
-				A973643D1D533C4000194CE7 /* Reflect+Other.swift */,
-				A973643E1D533C4000194CE7 /* Reflect+Property.swift */,
-				A973643F1D533C4000194CE7 /* Reflect+Type.swift */,
-			);
-			path = Reflect;
+			path = HEExention;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +164,7 @@
 				A97364131D51BFB900194CE7 /* Resources */,
 				C82C3AE769D09D223E41B1FA /* 📦 Embed Pods Frameworks */,
 				D284407BBFC01F9CE15AFDE8 /* 📦 Copy Pods Resources */,
+				A917CA8A1D58836F00350647 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,18 +275,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */,
-				A97364431D533C4000194CE7 /* Reflect+Convert.swift in Sources */,
+				A9D946F61D584A28000DBD60 /* HE_Model2Dict.swift in Sources */,
 				A973642C1D51C48500194CE7 /* ConstantAndThirdPart.swift in Sources */,
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
-				A97364481D533C4000194CE7 /* Reflect.swift in Sources */,
-				A97364451D533C4000194CE7 /* Reflect+Other.swift in Sources */,
-				A97364421D533C4000194CE7 /* Reflect+Parse.swift in Sources */,
+				A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
-				A97364411D533C4000194CE7 /* Reflect+ArcFile.swift in Sources */,
-				A97364441D533C4000194CE7 /* Reflect+Class.swift in Sources */,
-				A97364461D533C4000194CE7 /* Reflect+Property.swift in Sources */,
 				A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */,
-				A97364471D533C4000194CE7 /* Reflect+Type.swift in Sources */,
+				A9D946F41D584A28000DBD60 /* HE_Dict2Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,12 +395,16 @@
 			baseConfigurationReference = 40AB6EEEFA29BCDAA84F1D91 /* Pods-ZJGBus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = ZJGBus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rockstar.ZJGBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZJGBus-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -439,12 +413,15 @@
 			baseConfigurationReference = B051599968B1B2DB4C2AEFB3 /* Pods-ZJGBus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = ZJGBus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rockstar.ZJGBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZJGBus-Bridging-Header.h";
 			};
 			name = Release;
 		};

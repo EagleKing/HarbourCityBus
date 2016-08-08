@@ -2,17 +2,20 @@ PODS:
   - Alamofire (2.0.2)
   - SnapKit (0.21.1)
   - SwiftyJSON (2.3.2)
+  - ZYThumbnailTableView (1.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 2.0.2)
   - SnapKit
   - SwiftyJSON
+  - ZYThumbnailTableView
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  ZYThumbnailTableView: cecf100ea0d7aa1058f22c6b8b678dba4e795802
 
-PODFILE CHECKSUM: 7b6c38492bbe7d3c0bf3e8235131ddac9cf12dc6
+PODFILE CHECKSUM: e0071b0e204dce3b53f0ec68ae8710066439d9cd
 
 COCOAPODS: 1.0.0

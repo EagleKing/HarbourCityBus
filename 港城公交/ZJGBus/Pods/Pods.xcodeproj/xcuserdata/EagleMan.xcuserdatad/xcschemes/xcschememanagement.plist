@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ZYThumbnailTableView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -32,17 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD30CAE6A120C780BB98694BA5F5196D</key>
+		<key>56DFB9EDA65B70C43188BBD7808A675B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF60ADF573AEF5B973CCEFA21B575FDE</key>
+		<key>5ED79A586BD326C9A74868A42B32833F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1294B516E60BA6A5BF8ECFFF96E74CA</key>
+		<key>AF0E2D0160A362E1E37264D03B04B3F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E45B75585174A6AF574A38E52577A6D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
