@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ZYThumbnailTableViewController
+
 
 class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource
 {

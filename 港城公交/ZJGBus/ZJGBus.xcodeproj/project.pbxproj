@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C66A51733518001844E910 /* Pods_ZJGBus.framework */; };
-		A917CA881D58836F00350647 /* ZYThumbnailTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */; };
-		A917CA891D58836F00350647 /* ZYThumbnailTableView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364181D51BFB900194CE7 /* AppDelegate.swift */; };
 		A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973641A1D51BFB900194CE7 /* ViewController.swift */; };
 		A973641E1D51BFB900194CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A973641C1D51BFB900194CE7 /* Main.storyboard */; };
@@ -30,7 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A917CA891D58836F00350647 /* ZYThumbnailTableView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,7 +37,6 @@
 /* Begin PBXFileReference section */
 		40AB6EEEFA29BCDAA84F1D91 /* Pods-ZJGBus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.debug.xcconfig"; sourceTree = "<group>"; };
 		78C66A51733518001844E910 /* Pods_ZJGBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJGBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZYThumbnailTableView.framework; path = "/Users/eagle/Library/Developer/Xcode/DerivedData/ZJGBus-fxuurwmjcuazfwevsybzahhrtnjr/Build/Products/Debug-iphonesimulator/ZYThumbnailTableView/ZYThumbnailTableView.framework"; sourceTree = "<absolute>"; };
 		A917CA8B1D5884F500350647 /* ZJGBus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZJGBus-Bridging-Header.h"; sourceTree = "<group>"; };
 		A97364151D51BFB900194CE7 /* ZJGBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJGBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97364181D51BFB900194CE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A917CA881D58836F00350647 /* ZYThumbnailTableView.framework in Frameworks */,
 				0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,7 +86,6 @@
 		A973640C1D51BFB900194CE7 = {
 			isa = PBXGroup;
 			children = (
-				A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */,
 				A97364171D51BFB900194CE7 /* ZJGBus */,
 				A97364161D51BFB900194CE7 /* Products */,
 				2FB984831C8DEBCF22338FE4 /* Pods */,
