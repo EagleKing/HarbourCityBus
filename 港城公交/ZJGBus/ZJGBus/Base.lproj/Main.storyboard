@@ -1,13 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yMc-ro-dWn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Collection View Controller-->
+        <scene sceneID="Su0-Pr-dPs">
+            <objects>
+                <viewController id="KSc-Gu-yYY" customClass="CollectionViewController" customModule="ZJGBus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vg6-8d-h9A"/>
+                        <viewControllerLayoutGuide type="bottom" id="7rF-qy-Syh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTG-Nn-TB4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="collection" selectedImage="collectionSelected" id="oER-S1-QBO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQl-Ri-JFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="1120"/>
+        </scene>
+        <!--Navigation View Controller-->
+        <scene sceneID="nhZ-TP-xd7">
+            <objects>
+                <viewController id="hBq-Dp-kmN" customClass="NavigationViewController" customModule="ZJGBus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ClC-c3-MH9"/>
+                        <viewControllerLayoutGuide type="bottom" id="xxc-Ho-ho0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UlZ-fn-Bdz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="navigation" selectedImage="navigationSelected" id="6CB-Ma-L5B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iaX-bg-q6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="1133"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ZJGBus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,9 +56,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchSelected" id="Lpc-km-sJK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1077" y="341"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bHd-xG-cMD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yMc-ro-dWn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="jzD-v9-AeG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KSc-Gu-yYY" kind="relationship" relationship="viewControllers" id="N03-p6-uQ4"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="wgf-Ae-k81"/>
+                        <segue destination="hBq-Dp-kmN" kind="relationship" relationship="viewControllers" id="mYT-os-esw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vwb-UL-iHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="290"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="16" height="16"/>
+        <image name="collectionSelected" width="16" height="16"/>
+        <image name="navigation" width="16" height="16"/>
+        <image name="navigationSelected" width="16" height="16"/>
+        <image name="search" width="16" height="16"/>
+        <image name="searchSelected" width="16" height="16"/>
+    </resources>
 </document>

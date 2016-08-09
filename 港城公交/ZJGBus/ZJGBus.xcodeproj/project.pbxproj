@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C66A51733518001844E910 /* Pods_ZJGBus.framework */; };
-		A917CA881D58836F00350647 /* ZYThumbnailTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */; };
-		A917CA891D58836F00350647 /* ZYThumbnailTableView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A917CA901D596F8E00350647 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA8F1D596F8E00350647 /* CollectionViewController.swift */; };
+		A917CA921D596FBA00350647 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA911D596FBA00350647 /* NavigationViewController.swift */; };
+		A917CA941D59719E00350647 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA931D59719E00350647 /* BaseViewController.swift */; };
+		A917CAA91D59748E00350647 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAA71D59748E00350647 /* SearchResultTableViewCell.swift */; };
+		A917CAAA1D59748E00350647 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A917CAA81D59748E00350647 /* SearchResultTableViewCell.xib */; };
+		A917CAAC1D59AF3000350647 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAAB1D59AF3000350647 /* StarButton.swift */; };
+		A917CAAF1D59AF9E00350647 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAAD1D59AF9E00350647 /* Paths.swift */; };
+		A917CAB01D59AF9E00350647 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAAE1D59AF9E00350647 /* Extensions.swift */; };
+		A917CAB21D59B88D00350647 /* BusInfoWithRunPathID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */; };
+		A917CAB51D59C4BD00350647 /* BusLineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */; };
+		A917CAB61D59C4BD00350647 /* BusLineInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */; };
 		A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364181D51BFB900194CE7 /* AppDelegate.swift */; };
 		A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973641A1D51BFB900194CE7 /* ViewController.swift */; };
 		A973641E1D51BFB900194CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A973641C1D51BFB900194CE7 /* Main.storyboard */; };
@@ -30,7 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A917CA891D58836F00350647 /* ZYThumbnailTableView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,8 +48,18 @@
 /* Begin PBXFileReference section */
 		40AB6EEEFA29BCDAA84F1D91 /* Pods-ZJGBus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.debug.xcconfig"; sourceTree = "<group>"; };
 		78C66A51733518001844E910 /* Pods_ZJGBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJGBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ZYThumbnailTableView.framework; path = "/Users/eagle/Library/Developer/Xcode/DerivedData/ZJGBus-fxuurwmjcuazfwevsybzahhrtnjr/Build/Products/Debug-iphonesimulator/ZYThumbnailTableView/ZYThumbnailTableView.framework"; sourceTree = "<absolute>"; };
 		A917CA8B1D5884F500350647 /* ZJGBus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZJGBus-Bridging-Header.h"; sourceTree = "<group>"; };
+		A917CA8F1D596F8E00350647 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		A917CA911D596FBA00350647 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		A917CA931D59719E00350647 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A917CAA71D59748E00350647 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		A917CAA81D59748E00350647 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		A917CAAB1D59AF3000350647 /* StarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
+		A917CAAD1D59AF9E00350647 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		A917CAAE1D59AF9E00350647 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusInfoWithRunPathID.swift; sourceTree = "<group>"; };
+		A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusLineInfoTableViewCell.xib; sourceTree = "<group>"; };
 		A97364151D51BFB900194CE7 /* ZJGBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJGBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97364181D51BFB900194CE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A973641A1D51BFB900194CE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A917CA881D58836F00350647 /* ZYThumbnailTableView.framework in Frameworks */,
 				0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,10 +105,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A917CAA61D59739E00350647 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				A917CAA71D59748E00350647 /* SearchResultTableViewCell.swift */,
+				A917CAA81D59748E00350647 /* SearchResultTableViewCell.xib */,
+				A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */,
+				A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
 		A973640C1D51BFB900194CE7 = {
 			isa = PBXGroup;
 			children = (
-				A917CA871D58836F00350647 /* ZYThumbnailTableView.framework */,
 				A97364171D51BFB900194CE7 /* ZJGBus */,
 				A97364161D51BFB900194CE7 /* Products */,
 				2FB984831C8DEBCF22338FE4 /* Pods */,
@@ -113,9 +140,13 @@
 			children = (
 				A97364331D533BE400194CE7 /* ThirdPart */,
 				A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */,
+				A917CAA61D59739E00350647 /* CellView */,
 				A973642D1D51C64F00194CE7 /* Model */,
 				A97364181D51BFB900194CE7 /* AppDelegate.swift */,
+				A917CA931D59719E00350647 /* BaseViewController.swift */,
 				A973641A1D51BFB900194CE7 /* ViewController.swift */,
+				A917CA8F1D596F8E00350647 /* CollectionViewController.swift */,
+				A917CA911D596FBA00350647 /* NavigationViewController.swift */,
 				A973641C1D51BFB900194CE7 /* Main.storyboard */,
 				A973641F1D51BFB900194CE7 /* Assets.xcassets */,
 				A97364211D51BFB900194CE7 /* LaunchScreen.storyboard */,
@@ -129,6 +160,7 @@
 			children = (
 				A973642E1D51C65E00194CE7 /* BaseEntity.swift */,
 				A97364301D51D1A500194CE7 /* LineListEntity.swift */,
+				A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +168,9 @@
 		A97364331D533BE400194CE7 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				A917CAAD1D59AF9E00350647 /* Paths.swift */,
+				A917CAAE1D59AF9E00350647 /* Extensions.swift */,
+				A917CAAB1D59AF3000350647 /* StarButton.swift */,
 				A9D946F01D584A28000DBD60 /* HEExention */,
 			);
 			path = ThirdPart;
@@ -215,7 +250,9 @@
 			files = (
 				A97364231D51BFB900194CE7 /* LaunchScreen.storyboard in Resources */,
 				A97364201D51BFB900194CE7 /* Assets.xcassets in Resources */,
+				A917CAAA1D59748E00350647 /* SearchResultTableViewCell.xib in Resources */,
 				A973641E1D51BFB900194CE7 /* Main.storyboard in Resources */,
+				A917CAB61D59C4BD00350647 /* BusLineInfoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,13 +311,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A917CAAF1D59AF9E00350647 /* Paths.swift in Sources */,
+				A917CAAC1D59AF3000350647 /* StarButton.swift in Sources */,
+				A917CA901D596F8E00350647 /* CollectionViewController.swift in Sources */,
 				A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */,
+				A917CAA91D59748E00350647 /* SearchResultTableViewCell.swift in Sources */,
+				A917CA941D59719E00350647 /* BaseViewController.swift in Sources */,
+				A917CAB21D59B88D00350647 /* BusInfoWithRunPathID.swift in Sources */,
 				A9D946F61D584A28000DBD60 /* HE_Model2Dict.swift in Sources */,
+				A917CAB51D59C4BD00350647 /* BusLineInfoTableViewCell.swift in Sources */,
 				A973642C1D51C48500194CE7 /* ConstantAndThirdPart.swift in Sources */,
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
 				A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */,
+				A917CAB01D59AF9E00350647 /* Extensions.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
 				A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */,
+				A917CA921D596FBA00350647 /* NavigationViewController.swift in Sources */,
 				A9D946F41D584A28000DBD60 /* HE_Dict2Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
