@@ -13,11 +13,14 @@ enum searchResultType
     case searchResultType
     case BusInfoType
 }
-class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource
+class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource
 {
     let searchResultCellID = "searchResultCell"
     let customSearchResultCellID = "customSearchResultCellID"
     let BusInfoCellID = "BusInfoCell"
+    var currectRunPathIdForBusInfo = ""
+    
+    
     
     var tableViewType = searchResultType.searchResultType
     var searchBar = UISearchBar()
@@ -51,10 +54,17 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
     
         self.congureUI()
         //修改选中图片
-        let image = self.tabBarItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
-        self.tabBarItem.selectedImage = image;
+        let image = self.navigationController?.tabBarItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+        self.navigationController?.tabBarItem.selectedImage = image;
         
     }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = true
+    }
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
+    }
+    //MARK:配置UI
     func congureUI()
     {
         //初始化搜索
@@ -92,10 +102,8 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
                 make.top.equalTo(searchBar.snp_bottom)
                 make.right.equalTo(self.view.snp_right)
                 make.left.equalTo(self.view.snp_left)
-                make.bottom.equalTo(self.view.snp_bottom).offset(-48)
+                make.bottom.equalTo(self.view.snp_bottom)
         }
-        
-        
         
     }
     override func didReceiveMemoryWarning() {
@@ -103,6 +111,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
         // Dispose of any resources that can be recreated.
     }
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         if resultTableView.separatorStyle == .None
         {
             resultTableView.separatorStyle = .SingleLineEtched
@@ -112,8 +121,13 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
         LineList.startRequestWith(searchBar.text, completionHandler:
         {lineList in
                 self.tableViewType = .searchResultType
-                self.lineList = lineList
+                if (lineList != nil)
+                {
+                   self.lineList = lineList! 
+                }
+            
                 MBProgressHUD.hideHUDForView(self.view, animated:true)
+            
         })
     }
     //MARK:tableview delegate/datasource
@@ -170,16 +184,18 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if tableViewType == .searchResultType
         {
+            
             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             let busInfosQueue = dispatch_queue_create("com.rockstar.businfosQueue",DISPATCH_QUEUE_SERIAL)
             let globalBackgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
             dispatch_set_target_queue(busInfosQueue, globalBackgroundQueue)//改变优先级
 
             let lineEnity:LineListEntity = lineList.lines![indexPath.row] as! LineListEntity
-            let flags = ["1","3"]
+            currectRunPathIdForBusInfo = lineEnity.runPathId//路线id
+            let flags = ["1","2"]
             
             busInfos.removeAll()
             BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[0])
@@ -190,6 +206,9 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
                    dispatch_async(dispatch_get_main_queue(), { //返回主队列更新UI
                     //上下行1 dataModel数据model
                     self.busInfos.append(dataModel)
+                    
+                    print("1111")
+                    
                    })
                    
                 })
@@ -202,10 +221,20 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
                     dispatch_async(dispatch_get_main_queue(), {//返回主队列更新UI
                         //上下行3 dataModel数据model
                         self.busInfos.append(dataModel)
+                        
+                        print("22222")
                     })
                     
                 })
             }
+            
+        }else
+        {
+            
+            var busInfoDetailVC = BusInfoDetailViewController()
+            busInfoDetailVC.runPathID = currectRunPathIdForBusInfo
+            busInfoDetailVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(busInfoDetailVC, animated: true)
             
         }
     }

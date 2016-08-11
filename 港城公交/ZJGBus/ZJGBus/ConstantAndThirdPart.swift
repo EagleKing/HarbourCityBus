@@ -13,3 +13,5 @@ import SnapKit
 let phoneWidth = UIScreen.mainScreen().bounds.size.width
 let phoneHeight = UIScreen.mainScreen().bounds.size.height
 let isStartRequestKeyPath = "isStartRequest"
+let UniversalColorHexString = "#11cd6e"
+        

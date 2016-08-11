@@ -19,6 +19,11 @@
 		A917CAB21D59B88D00350647 /* BusInfoWithRunPathID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */; };
 		A917CAB51D59C4BD00350647 /* BusLineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */; };
 		A917CAB61D59C4BD00350647 /* BusLineInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */; };
+		A95BF78F1D5C4C040070C2F1 /* BusInfoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BF78D1D5C4C040070C2F1 /* BusInfoDetailViewController.swift */; };
+		A95BF7901D5C4C040070C2F1 /* BusInfoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95BF78E1D5C4C040070C2F1 /* BusInfoDetailViewController.xib */; };
+		A95BF7921D5C4F1E0070C2F1 /* BusAllStationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BF7911D5C4F1E0070C2F1 /* BusAllStationEntity.swift */; };
+		A95BF7951D5C5B1E0070C2F1 /* BusStationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BF7931D5C5B1E0070C2F1 /* BusStationTableViewCell.swift */; };
+		A95BF7961D5C5B1E0070C2F1 /* BusStationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95BF7941D5C5B1E0070C2F1 /* BusStationTableViewCell.xib */; };
 		A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97364181D51BFB900194CE7 /* AppDelegate.swift */; };
 		A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973641A1D51BFB900194CE7 /* ViewController.swift */; };
 		A973641E1D51BFB900194CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A973641C1D51BFB900194CE7 /* Main.storyboard */; };
@@ -60,6 +65,11 @@
 		A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusInfoWithRunPathID.swift; sourceTree = "<group>"; };
 		A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusLineInfoTableViewCell.xib; sourceTree = "<group>"; };
+		A95BF78D1D5C4C040070C2F1 /* BusInfoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusInfoDetailViewController.swift; path = Model/BusInfoDetailViewController.swift; sourceTree = "<group>"; };
+		A95BF78E1D5C4C040070C2F1 /* BusInfoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusInfoDetailViewController.xib; path = Model/BusInfoDetailViewController.xib; sourceTree = "<group>"; };
+		A95BF7911D5C4F1E0070C2F1 /* BusAllStationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusAllStationEntity.swift; sourceTree = "<group>"; };
+		A95BF7931D5C5B1E0070C2F1 /* BusStationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStationTableViewCell.swift; sourceTree = "<group>"; };
+		A95BF7941D5C5B1E0070C2F1 /* BusStationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusStationTableViewCell.xib; sourceTree = "<group>"; };
 		A97364151D51BFB900194CE7 /* ZJGBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJGBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97364181D51BFB900194CE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A973641A1D51BFB900194CE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +122,8 @@
 				A917CAA81D59748E00350647 /* SearchResultTableViewCell.xib */,
 				A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */,
 				A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */,
+				A95BF7931D5C5B1E0070C2F1 /* BusStationTableViewCell.swift */,
+				A95BF7941D5C5B1E0070C2F1 /* BusStationTableViewCell.xib */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -144,6 +156,8 @@
 				A973642D1D51C64F00194CE7 /* Model */,
 				A97364181D51BFB900194CE7 /* AppDelegate.swift */,
 				A917CA931D59719E00350647 /* BaseViewController.swift */,
+				A95BF78D1D5C4C040070C2F1 /* BusInfoDetailViewController.swift */,
+				A95BF78E1D5C4C040070C2F1 /* BusInfoDetailViewController.xib */,
 				A973641A1D51BFB900194CE7 /* ViewController.swift */,
 				A917CA8F1D596F8E00350647 /* CollectionViewController.swift */,
 				A917CA911D596FBA00350647 /* NavigationViewController.swift */,
@@ -161,6 +175,7 @@
 				A973642E1D51C65E00194CE7 /* BaseEntity.swift */,
 				A97364301D51D1A500194CE7 /* LineListEntity.swift */,
 				A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */,
+				A95BF7911D5C4F1E0070C2F1 /* BusAllStationEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,9 +263,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95BF7901D5C4C040070C2F1 /* BusInfoDetailViewController.xib in Resources */,
 				A97364231D51BFB900194CE7 /* LaunchScreen.storyboard in Resources */,
 				A97364201D51BFB900194CE7 /* Assets.xcassets in Resources */,
 				A917CAAA1D59748E00350647 /* SearchResultTableViewCell.xib in Resources */,
+				A95BF7961D5C5B1E0070C2F1 /* BusStationTableViewCell.xib in Resources */,
 				A973641E1D51BFB900194CE7 /* Main.storyboard in Resources */,
 				A917CAB61D59C4BD00350647 /* BusLineInfoTableViewCell.xib in Resources */,
 			);
@@ -313,8 +330,10 @@
 			files = (
 				A917CAAF1D59AF9E00350647 /* Paths.swift in Sources */,
 				A917CAAC1D59AF3000350647 /* StarButton.swift in Sources */,
+				A95BF78F1D5C4C040070C2F1 /* BusInfoDetailViewController.swift in Sources */,
 				A917CA901D596F8E00350647 /* CollectionViewController.swift in Sources */,
 				A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */,
+				A95BF7921D5C4F1E0070C2F1 /* BusAllStationEntity.swift in Sources */,
 				A917CAA91D59748E00350647 /* SearchResultTableViewCell.swift in Sources */,
 				A917CA941D59719E00350647 /* BaseViewController.swift in Sources */,
 				A917CAB21D59B88D00350647 /* BusInfoWithRunPathID.swift in Sources */,
@@ -324,6 +343,7 @@
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
 				A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */,
 				A917CAB01D59AF9E00350647 /* Extensions.swift in Sources */,
+				A95BF7951D5C5B1E0070C2F1 /* BusStationTableViewCell.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
 				A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */,
 				A917CA921D596FBA00350647 /* NavigationViewController.swift in Sources */,

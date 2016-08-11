@@ -26,7 +26,7 @@ class LineList:BaseEntity,DictModelProtocol
     {
         return ["lines":"LineListEntity"]
     }
-    class func startRequestWith(name:String?, completionHandler:(dataModel:LineList) -> Void)
+    class func startRequestWith(name:String?, completionHandler:(dataModel:LineList?) -> Void)
     {
         
         if name != nil
@@ -43,6 +43,9 @@ class LineList:BaseEntity,DictModelProtocol
                           completionHandler(dataModel: lineList)
                           print(lineList.lines)
                           //尼玛，字典转模型的坑终于踩完了
+                       }else
+                       {
+                          completionHandler(dataModel:nil)
                        }
                         
                         
