@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '56DFB9EDA65B70C43188BBD7808A675B'
-               BlueprintName = 'ZYThumbnailTableView'
+               BlueprintIdentifier = 'DBA6001481CEA0EBA031CC5C94508FAA'
+               BlueprintName = 'MBProgressHUD'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ZYThumbnailTableView.framework'>
+               BuildableName = 'MBProgressHUD.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -22,6 +22,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
     var tableViewType = searchResultType.searchResultType
     var searchBar = UISearchBar()
     var resultTableView = UITableView(frame: CGRectZero, style:.Plain)
+    
     var busInfos = [BusInfoWithRunPathID]()
         {
             didSet
@@ -32,6 +33,7 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
                     resultTableView.separatorStyle = .None
                     resultTableView.backgroundColor = UIColor.groupTableViewBackgroundColor()
                     self.resultTableView.reloadData()
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                 }
             }
         }
@@ -94,24 +96,26 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
         }
         
         
-     
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
-    {
-        LineList.startRequestWith(searchText, completionHandler:
-        {lineList in
-            self.tableViewType = .searchResultType
-            self.lineList = lineList
-            
-        })
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if resultTableView.separatorStyle == .None
+        {
+            resultTableView.separatorStyle = .SingleLineEtched
+        }
+        MBProgressHUD.showHUDAddedTo(self.view, animated:true)
         
+        LineList.startRequestWith(searchBar.text, completionHandler:
+        {lineList in
+                self.tableViewType = .searchResultType
+                self.lineList = lineList
+                MBProgressHUD.hideHUDForView(self.view, animated:true)
+        })
     }
-    
     //MARK:tableview delegate/datasource
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
@@ -166,26 +170,43 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        let lineEnity:LineListEntity = lineList.lines![indexPath.row] as! LineListEntity
-        let flags = ["1","3"]
         
-        
-        
-        busInfos.removeAll()
-         BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[0])
-         { (dataModel) in
-            print("11111")
-         //上下行1 dataModel数据model
-            self.busInfos.append(dataModel)
-            var queue = dispatch_queue_create("com.rockstar.businfosQueue",DISPATCH_QUEUE_SERIAL)
-            let globalBackgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
-            dispatch_set_target_queue(queue, globalBackgroundQueue)
-         }
-        BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[1])
-        { (dataModel) in
-            print("22222")
-         //上下行3 dataModel数据model
-            self.busInfos.append(dataModel)
+        if tableViewType == .searchResultType
+        {
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            let busInfosQueue = dispatch_queue_create("com.rockstar.businfosQueue",DISPATCH_QUEUE_SERIAL)
+            let globalBackgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+            dispatch_set_target_queue(busInfosQueue, globalBackgroundQueue)//改变优先级
+
+            let lineEnity:LineListEntity = lineList.lines![indexPath.row] as! LineListEntity
+            let flags = ["1","3"]
+            
+            busInfos.removeAll()
+            BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[0])
+            { (dataModel) in
+                dispatch_async(busInfosQueue,
+                {
+                    
+                   dispatch_async(dispatch_get_main_queue(), { //返回主队列更新UI
+                    //上下行1 dataModel数据model
+                    self.busInfos.append(dataModel)
+                   })
+                   
+                })
+            }
+            BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[1])
+            { (dataModel) in
+                dispatch_async(busInfosQueue,
+                {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {//返回主队列更新UI
+                        //上下行3 dataModel数据model
+                        self.busInfos.append(dataModel)
+                    })
+                    
+                })
+            }
+            
         }
     }
 }

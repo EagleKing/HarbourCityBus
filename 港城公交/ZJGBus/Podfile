@@ -3,4 +3,5 @@ use_frameworks!
 target "ZJGBus" do
 pod 'Alamofire', '~> 2.0.2'
 pod 'SnapKit'
+pod 'MBProgressHUD'
 end

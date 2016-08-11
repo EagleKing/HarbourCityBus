@@ -50,12 +50,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-ad-lwU">
-                                <rect key="frame" x="184" y="14" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="终" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-VU-oPr">
                                 <rect key="frame" x="353" y="0.0" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.3418394092" blue="0.304558" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,6 +68,12 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-ad-lwU">
+                                <rect key="frame" x="184" y="14" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.70069437585570471" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -86,7 +86,9 @@
                             <constraint firstItem="3B4-ad-lwU" firstAttribute="baseline" secondItem="kcf-jS-Hzg" secondAttribute="baseline" id="JbZ-Lr-8TT"/>
                             <constraint firstItem="kcf-jS-Hzg" firstAttribute="centerY" secondItem="dCg-z9-nNK" secondAttribute="centerY" id="LRk-qK-SuC"/>
                             <constraint firstAttribute="trailing" secondItem="mRu-VU-oPr" secondAttribute="trailing" id="Lny-kI-66g"/>
+                            <constraint firstItem="3B4-ad-lwU" firstAttribute="centerY" secondItem="kcf-jS-Hzg" secondAttribute="centerY" id="Trq-Dz-bmV"/>
                             <constraint firstAttribute="bottom" secondItem="dCg-z9-nNK" secondAttribute="bottom" id="UmW-YM-CWm"/>
+                            <constraint firstItem="3B4-ad-lwU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kcf-jS-Hzg" secondAttribute="trailing" id="XK2-Kl-U2J"/>
                             <constraint firstItem="mRu-VU-oPr" firstAttribute="baseline" secondItem="dCg-z9-nNK" secondAttribute="baseline" id="aI2-Qs-eZh"/>
                             <constraint firstItem="dCg-z9-nNK" firstAttribute="top" secondItem="cNC-k8-ke7" secondAttribute="top" id="i7E-1J-PQk"/>
                             <constraint firstItem="8Pq-hw-Ydk" firstAttribute="centerY" secondItem="3B4-ad-lwU" secondAttribute="centerY" id="rAZ-HZ-f11"/>
@@ -95,6 +97,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="JbZ-Lr-8TT"/>
                                 <exclude reference="tcR-ub-7ec"/>
                             </mask>
                         </variation>

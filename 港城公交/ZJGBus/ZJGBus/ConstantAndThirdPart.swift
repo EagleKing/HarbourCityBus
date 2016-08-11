@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SnapKit
-import SwiftyJSON
+
 let phoneWidth = UIScreen.mainScreen().bounds.size.width
 let phoneHeight = UIScreen.mainScreen().bounds.size.height
 let isStartRequestKeyPath = "isStartRequest"

@@ -9,22 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ZJGBus.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SnapKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftyJSON.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ZYThumbnailTableView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,22 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56DFB9EDA65B70C43188BBD7808A675B</key>
+		<key>A5DE8A163C77CF97300E12BF147C04DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5ED79A586BD326C9A74868A42B32833F</key>
+		<key>CE69C256BDFB1C16F41A5245CBD8EA0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF0E2D0160A362E1E37264D03B04B3F9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E45B75585174A6AF574A38E52577A6D5</key>
+		<key>DBA6001481CEA0EBA031CC5C94508FAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
