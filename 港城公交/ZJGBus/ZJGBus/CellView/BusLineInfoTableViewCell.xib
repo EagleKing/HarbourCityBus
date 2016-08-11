@@ -156,9 +156,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="hWk-su-NyT"/>
-                                <exclude reference="bU9-oe-dao"/>
                                 <exclude reference="UvM-pg-Xwv"/>
                                 <exclude reference="w6C-tH-ZwB"/>
+                                <exclude reference="bU9-oe-dao"/>
                             </mask>
                         </variation>
                     </view>

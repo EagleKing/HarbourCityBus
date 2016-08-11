@@ -177,7 +177,9 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDelegate,U
             print("11111")
          //上下行1 dataModel数据model
             self.busInfos.append(dataModel)
-            
+            var queue = dispatch_queue_create("com.rockstar.businfosQueue",DISPATCH_QUEUE_SERIAL)
+            let globalBackgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
+            dispatch_set_target_queue(queue, globalBackgroundQueue)
          }
         BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[1])
         { (dataModel) in
