@@ -233,8 +233,9 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         }else
         {
             
-            var busInfoDetailVC = BusInfoDetailViewController()
+            let busInfoDetailVC = BusInfoDetailViewController()
             busInfoDetailVC.runPathID = currectRunPathIdForBusInfo
+            busInfoDetailVC.currentIndex = indexPath.row
             busInfoDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(busInfoDetailVC, animated: true)
             

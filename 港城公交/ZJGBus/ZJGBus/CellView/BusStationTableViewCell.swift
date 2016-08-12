@@ -10,6 +10,7 @@ import UIKit
 
 class BusStationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var stationLab: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         

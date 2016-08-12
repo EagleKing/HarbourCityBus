@@ -16,7 +16,7 @@ class BaseViewController: UIViewController,UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
         self.edgesForExtendedLayout = .None
         self.automaticallyAdjustsScrollViewInsets = true
-        
+        self.navigationController?.navigationBar.tintColor = UIColor(hex: UniversalColorHexString)
         
         //配置左侧barbuttonitem
         let backBtn = UIButton.init(type: .Custom)
