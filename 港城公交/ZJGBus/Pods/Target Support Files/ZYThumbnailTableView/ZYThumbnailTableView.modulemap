@@ -1,6 +1,0 @@
-framework module ZYThumbnailTableView {
-  umbrella header "ZYThumbnailTableView-umbrella.h"
-
-  export *
-  module * { export * }
-}

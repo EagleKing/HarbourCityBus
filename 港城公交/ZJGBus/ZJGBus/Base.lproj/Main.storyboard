@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="navigation" selectedImage="navigationSelected" id="6CB-Ma-L5B"/>
+                    <tabBarItem key="tabBarItem" title="" image="user" selectedImage="userSelected" id="6CB-Ma-L5B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaX-bg-q6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,11 +56,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchSelected" id="Lpc-km-sJK"/>
+                    <navigationItem key="navigationItem" id="u7Z-ai-fbA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="341"/>
+            <point key="canvasLocation" x="1889" y="341"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bHd-xG-cMD">
@@ -73,7 +73,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="KSc-Gu-yYY" kind="relationship" relationship="viewControllers" id="N03-p6-uQ4"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="wgf-Ae-k81"/>
+                        <segue destination="Rus-jo-OTR" kind="relationship" relationship="viewControllers" id="wgf-Ae-k81"/>
                         <segue destination="hBq-Dp-kmN" kind="relationship" relationship="viewControllers" id="mYT-os-esw"/>
                     </connections>
                 </tabBarController>
@@ -81,13 +81,32 @@
             </objects>
             <point key="canvasLocation" x="235" y="290"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lli-MJ-nLB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rus-jo-OTR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="searchSelected" id="Lpc-km-sJK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xdG-UJ-evu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cF5-Ze-b3R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rzx-5Z-jZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1077" y="341"/>
+        </scene>
     </scenes>
     <resources>
         <image name="collection" width="16" height="16"/>
         <image name="collectionSelected" width="16" height="16"/>
-        <image name="navigation" width="16" height="16"/>
-        <image name="navigationSelected" width="16" height="16"/>
         <image name="search" width="16" height="16"/>
         <image name="searchSelected" width="16" height="16"/>
+        <image name="user" width="32" height="32"/>
+        <image name="userSelected" width="32" height="32"/>
     </resources>
 </document>

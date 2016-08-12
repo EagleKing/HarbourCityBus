@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Pods-ZJGBus.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -47,7 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A5DE8A163C77CF97300E12BF147C04DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AF0E2D0160A362E1E37264D03B04B3F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE69C256BDFB1C16F41A5245CBD8EA0D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBA6001481CEA0EBA031CC5C94508FAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
