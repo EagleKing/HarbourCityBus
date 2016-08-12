@@ -43,6 +43,9 @@
                     <constraint firstItem="Fxd-dP-sYj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="48" id="yKL-Ao-pLw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="stationLab" destination="Fxd-dP-sYj" id="0nz-a8-ySf"/>
+            </connections>
             <point key="canvasLocation" x="232" y="256.5"/>
         </tableViewCell>
     </objects>

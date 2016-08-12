@@ -11,19 +11,63 @@ import Alamofire
 class BusAllStationEntity: BaseEntity,DictModelProtocol
 {
     var runPathName = ""
+    var runPathId = ""
+    var roundRunPath = ""
     var xiaxing : NSArray?
+    var shangxing : NSArray?
+    var flag = ""
+    var currentLines :[UniDataSoure]
+    {
+        get
+        {
+            
+            if flag == "1"
+            {
+                if shangxing?.count != nil
+                {
+                    var uniDataSources = [UniDataSoure]()
+                    
+                    for busInfo in shangxing!
+                    {
+                        let uniDataSource = UniDataSoure()
+                        uniDataSource.isStation = true
+                        uniDataSource.stationInfo = busInfo as? StationInfo
+                        uniDataSources.append(uniDataSource)
+                    }
+                    return uniDataSources
+                }
+            }else
+            {
+                if xiaxing?.count != nil
+                {
+                    var uniDataSources = [UniDataSoure]()
+                    
+                    for busInfo in xiaxing!
+                    {
+                        let uniDataSource = UniDataSoure()
+                        uniDataSource.isStation = true
+                        uniDataSource.stationInfo = busInfo as? StationInfo
+                        uniDataSources.append(uniDataSource)
+                    }
+                    return uniDataSources
+                }
+            }
+            return [UniDataSoure]()
+        }
+        set
+        {
+            
+        }
+    }
+    
     class func customClassMapping() -> [String : String]?
     {
-        return ["xiaxing":"StationInfo"]
+        return ["xiaxing":"StationInfo","shangxing":"StationInfo"]
     }
     class func startRequestWith(RunPathID:String ,completionHandler:(dataModel:BusAllStationEntity?) -> Void)
     {
-        
-        
         Alamofire.request(.POST, BASE_URL+"bus/searchSSR", parameters:["rpId":RunPathID]).responseJSON
         { (request, response, result) in
-            
-            
             
             if let value = result.value
             {
@@ -37,6 +81,7 @@ class BusAllStationEntity: BaseEntity,DictModelProtocol
                     completionHandler(dataModel:nil)
                 }
             }
+            
         }
     }
 }
@@ -47,3 +92,11 @@ class StationInfo: BaseEntity
     var busStationName = ""
     var busStationId = ""
 }
+class UniDataSoure: BaseEntity
+{
+    var isStation = true
+    var stationInfo:StationInfo?
+    var busOnlineInfo:BusOnlineInfo?
+}
+
+
