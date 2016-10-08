@@ -16,11 +16,10 @@ class BusAllStationEntity: BaseEntity,DictModelProtocol
     var xiaxing : NSArray?
     var shangxing : NSArray?
     var flag = ""
-    var currentLines :[UniDataSoure]
+    var currentLines = [UniDataSoure]()
+    
+    func currentLinesFunc ()->[UniDataSoure]
     {
-        get
-        {
-            
             if flag == "1"
             {
                 if shangxing?.count != nil
@@ -53,18 +52,13 @@ class BusAllStationEntity: BaseEntity,DictModelProtocol
                 }
             }
             return [UniDataSoure]()
-        }
-        set
-        {
-            
-        }
     }
     
     class func customClassMapping() -> [String : String]?
     {
         return ["xiaxing":"StationInfo","shangxing":"StationInfo"]
     }
-    class func startRequestWith(RunPathID:String ,completionHandler:(dataModel:BusAllStationEntity?) -> Void)
+    class func startRequestWith(_ RunPathID:String ,completionHandler:(_ dataModel:BusAllStationEntity?) -> Void)
     {
         Alamofire.request(.POST, BASE_URL+"bus/searchSSR", parameters:["rpId":RunPathID]).responseJSON
         { (request, response, result) in

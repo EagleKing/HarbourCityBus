@@ -16,15 +16,15 @@ class BusStationTableViewCell: UITableViewCell {
         
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(14.5, 23.5, 12, 12))
-        UIColor.whiteColor().setFill()
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 14.5, y: 23.5, width: 12, height: 12))
+        UIColor.white.setFill()
         ovalPath.fill()
         UIColor.init(hex:UniversalColorHexString).setStroke()
         ovalPath.lineWidth = 1
@@ -33,8 +33,8 @@ class BusStationTableViewCell: UITableViewCell {
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(20.5, -0.5))
-        bezierPath.addLineToPoint(CGPointMake(20.5, 23.5))
+        bezierPath.move(to: CGPoint(x: 20.5, y: -0.5))
+        bezierPath.addLine(to: CGPoint(x: 20.5, y: 23.5))
         UIColor.init(hex: "#888888").setStroke()
         bezierPath.lineWidth = 4
         bezierPath.stroke()
@@ -42,8 +42,8 @@ class BusStationTableViewCell: UITableViewCell {
         
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        bezier2Path.moveToPoint(CGPointMake(20.5, 35.5))
-        bezier2Path.addLineToPoint(CGPointMake(20.5, 59.5))
+        bezier2Path.move(to: CGPoint(x: 20.5, y: 35.5))
+        bezier2Path.addLine(to: CGPoint(x: 20.5, y: 59.5))
         UIColor.init(hex: "#888888").setStroke()
         bezier2Path.lineWidth = 4
         bezier2Path.stroke()
