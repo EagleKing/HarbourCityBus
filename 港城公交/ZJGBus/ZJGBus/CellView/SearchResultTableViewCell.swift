@@ -15,10 +15,10 @@ class SearchResultTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfBus: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        self.backgroundColor = UIColor.groupTableViewBackground
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

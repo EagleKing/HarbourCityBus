@@ -26,12 +26,12 @@ class LineList:BaseEntity,DictModelProtocol
     {
         return ["lines":"LineListEntity"]
     }
-    class func startRequestWith(name:String?, completionHandler:(dataModel:LineList?) -> Void)
+    class func startRequestWith(_ name:String?, completionHandler:(_ dataModel:LineList?) -> Void)
     {
         
         if name != nil
         {
-            Alamofire.request(.POST, BaseEntity.BASE_URL+"bus/allStationOfRPName", parameters: ["name":name!]).responseJSON(options:NSJSONReadingOptions.AllowFragments, completionHandler:
+            Alamofire.request(.POST, BaseEntity.BASE_URL+"bus/allStationOfRPName", parameters: ["name":name!]).responseJSON(options:JSONSerialization.ReadingOptions.allowFragments, completionHandler:
                 { (request, response, result) in
                     if let value = result.value
                     {

@@ -18,17 +18,17 @@ extension NSObject{
                 let properties = class_copyPropertyList(classType, &count)
                 for i in 0..<count{
                     let property = properties[Int(i)]
-                    let propertyKey = String.fromCString(property_getName(property))!         //模型中属性名称
-                    let propertyType = String.fromCString(property_getAttributes(property))!  //模型中属性类型
+                    let propertyKey = String(cString: property_getName(property))         //模型中属性名称
+                    let propertyType = String(cString: property_getAttributes(property))  //模型中属性类型
                     
                     if "description" == propertyKey{ continue }   //描述，不是属性
                     
-                    let tempValue:AnyObject!  = self.valueForKey(propertyKey)
+                    let tempValue:AnyObject!  = self.value(forKey: propertyKey)
                     if  tempValue == nil { continue }
                     
                     if let _ =  HEFoundation.getType(propertyType) {         //1,自定义的类
                         result[propertyKey] = tempValue.keyValues
-                    }else if (propertyType.containsString("NSArray")){       //2, 数组, 将数组中的模型转成字典
+                    }else if (propertyType.contains("NSArray")){       //2, 数组, 将数组中的模型转成字典
                         result[propertyKey] = tempValue.keyValuesArray       //3， 基本数据
                     }else{
                         result[propertyKey] = tempValue

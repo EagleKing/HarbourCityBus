@@ -14,20 +14,20 @@ class BaseViewController: UIViewController,UIGestureRecognizerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.edgesForExtendedLayout = .None
+        self.edgesForExtendedLayout = UIRectEdge()
         self.automaticallyAdjustsScrollViewInsets = true
         self.navigationController?.navigationBar.tintColor = UIColor(hex: UniversalColorHexString)
         
         //配置左侧barbuttonitem
-        let backBtn = UIButton.init(type: .Custom)
-        backBtn.addTarget(self, action:#selector(goBack), forControlEvents:.TouchUpInside)
-        backBtn.frame = CGRectMake(0,0,25,25)
-        backBtn.setImage(UIImage.init(named: "back"), forState: .Normal)
+        let backBtn = UIButton.init(type: .custom)
+        backBtn.addTarget(self, action:#selector(goBack), for:.touchUpInside)
+        backBtn.frame = CGRect(x: 0,y: 0,width: 25,height: 25)
+        backBtn.setImage(UIImage.init(named: "back"), for: UIControlState())
         
         let backBarButtonItem = UIBarButtonItem(customView: backBtn)
         backBarButtonItem.title = ""
         
-        let itemSpacer = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        let itemSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         itemSpacer.width = -8
         
         self.navigationItem.leftBarButtonItems = [itemSpacer,backBarButtonItem]
@@ -37,9 +37,9 @@ class BaseViewController: UIViewController,UIGestureRecognizerDelegate {
         self.navigationController?.hidesBarsOnSwipe = true
         
     }
-    func goBack(){self.navigationController?.popViewControllerAnimated(true)}
+    func goBack(){self.navigationController?.popViewController(animated: true)}
 
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
     {
         if self.navigationController?.viewControllers.count == 1
         {

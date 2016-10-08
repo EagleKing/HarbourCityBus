@@ -13,7 +13,7 @@ class NavigationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //修改选中图片
-        let image = self.tabBarItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+        let image = self.tabBarItem.selectedImage?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.selectedImage = image;
     }
 

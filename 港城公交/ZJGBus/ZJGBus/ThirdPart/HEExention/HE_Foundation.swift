@@ -11,28 +11,28 @@ import Foundation
 class HEFoundation {
     
     static let set = NSSet(array: [
-                                    NSURL.classForCoder(),
-                                    NSDate.classForCoder(),
+                                    URL.classForCoder(),
+                                    Date.classForCoder(),
                                     NSValue.classForCoder(),
-                                    NSData.classForCoder(),
+                                    Data.classForCoder(),
                                     NSError.classForCoder(),
                                     NSArray.classForCoder(),
                                     NSDictionary.classForCoder(),
                                     NSString.classForCoder(),
                                     NSAttributedString.classForCoder()
                                   ])
-    static let  bundlePath = NSBundle.mainBundle().infoDictionary!["CFBundleExecutable"] as! String
+    static let  bundlePath = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
     
     /*** 判断某个类是否是 Foundation中自带的类 */
-    class func isClassFromFoundation(c:AnyClass)->Bool {
+    class func isClassFromFoundation(_ c:AnyClass)->Bool {
         var  result = false
         if c == NSObject.classForCoder(){
             result = true
         }else{
-            set.enumerateObjectsUsingBlock({ (foundation,  stop) -> Void in
-                if  c.isSubclassOfClass(foundation as! AnyClass) {
+            set.enumerateObjects({ (foundation,  stop) -> Void in
+                if  c.isSubclass(of: foundation as! AnyClass) {
                     result = true
-                    stop.initialize(true)
+                    stop.initialize(to: true)
                 }
             })
         }
@@ -45,22 +45,23 @@ class HEFoundation {
      到这个属性的类型是自定义的类时， 会得到下面的格式： T+@+"+..+工程的名字+数字+类名+"+,+其他,
      而我们想要的只是类名，所以要修改这个字符串
      */
-    class func getType(var code:String)->String?{
+    class func getType(_ code:String)->String?{
+        var code = code
         
-        if !code.containsString(bundlePath){ //不是自定义类
+        if !code.contains(bundlePath){ //不是自定义类
             return nil
         }
-        code = code.componentsSeparatedByString("\"")[1]
-        if let range = code.rangeOfString(bundlePath){
-            code = code.substringFromIndex(range.endIndex)
+        code = code.components(separatedBy: "\"")[1]
+        if let range = code.range(of: bundlePath){
+            code = code.substring(from: range.upperBound)
             var numStr = "" //类名前面的数字
             for c:Character in code.characters{
                 if c <= "9" && c >= "0"{
                     numStr+=String(c)
                 }
             }
-            if let numRange = code.rangeOfString(numStr){
-                code = code.substringFromIndex(numRange.endIndex)
+            if let numRange = code.range(of: numStr){
+                code = code.substring(from: numRange.upperBound)
             }
             return bundlePath+"."+code
         }

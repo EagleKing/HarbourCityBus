@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 import SnapKit
 
-let phoneWidth = UIScreen.mainScreen().bounds.size.width
-let phoneHeight = UIScreen.mainScreen().bounds.size.height
+let phoneWidth = UIScreen.main.bounds.size.width
+let phoneHeight = UIScreen.main.bounds.size.height
 let isStartRequestKeyPath = "isStartRequest"
 let UniversalColorHexString = "#11cd6e"
         
