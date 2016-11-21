@@ -19,17 +19,16 @@ class BusInfoWithRunPathID: BaseEntity
     var endStation = ""
     var endTime = ""
     var startTime1 = ""
-    class  func startRequest(_ runPathId:String,flag:String ,completionHander:(_ dataModel:BusInfoWithRunPathID)->Void)
+    class  func startRequest(_ runPathId:String,flag:String ,completionHander:@escaping (_ dataModel:BusInfoWithRunPathID)->Void)
     {
-        Alamofire.request(.POST, BASE_URL+"common/busQuery", parameters: ["runPathId":runPathId,"flag":flag]).responseJSON
-            { (request, response, result) in
-                if let value = result.value
-                {
-                    let dataModel = BusInfoWithRunPathID.objectWithKeyValues((((value as! NSDictionary)["result"])as! NSDictionary))as! BusInfoWithRunPathID
-            
-                    completionHander(dataModel: dataModel)
-                    
-                }
+        Alamofire.request(BASE_URL+"common/busQuery", method: .post, parameters:  ["runPathId":runPathId,"flag":flag], encoding: JSONEncoding.default).responseJSON { (DataResponse) in
+            if let value = DataResponse.result.value
+            {
+                let dataModel = BusInfoWithRunPathID.objectWithKeyValues((((value as! NSDictionary)["result"])as! NSDictionary))as! BusInfoWithRunPathID
+                
+                completionHander(dataModel)
+                
             }
+        }
     }
 }

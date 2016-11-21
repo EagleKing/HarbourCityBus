@@ -26,31 +26,29 @@ class LineList:BaseEntity,DictModelProtocol
     {
         return ["lines":"LineListEntity"]
     }
-    class func startRequestWith(_ name:String?, completionHandler:(_ dataModel:LineList?) -> Void)
+    class func startRequestWith(_ name:String?, completionHandler:@escaping (_ dataModel:LineList?) -> Void)
     {
         
         if name != nil
         {
-            Alamofire.request(.POST, BaseEntity.BASE_URL+"bus/allStationOfRPName", parameters: ["name":name!]).responseJSON(options:JSONSerialization.ReadingOptions.allowFragments, completionHandler:
-                { (request, response, result) in
-                    if let value = result.value
+            Alamofire.request(BaseEntity.BASE_URL+"bus/allStationOfRPName", method: .post, parameters: ["name":name!], encoding: JSONEncoding.default).responseJSON(completionHandler: { (DataResponse) in
+                if let value = DataResponse.result.value
+                {
+                    print(value)
+                    
+                    if ((value as! NSDictionary)["result"] != nil)// 这里也是坑
                     {
-                       print(value)
-                   
-                       if ((value as! NSDictionary)["result"] != nil)// 这里也是坑
-                       {
-                          let lineList = self.objectWithKeyValues((((value as! NSDictionary)["result"]) as! NSDictionary)) as! LineList
-                          completionHandler(dataModel: lineList)
-                          print(lineList.lines)
-                          //尼玛，字典转模型的坑终于踩完了
-                       }else
-                       {
-                          completionHandler(dataModel:nil)
-                       }
-                        
-                        
+                        let lineList = self.objectWithKeyValues((((value as! NSDictionary)["result"]) as! NSDictionary)) as! LineList
+                        completionHandler(lineList)
+                        //尼玛，字典转模型的坑终于踩完了
+                    }else
+                    {
+                        completionHandler(nil)
                     }
-                })
+                    
+                    
+                }
+            })
         }
     }
 }

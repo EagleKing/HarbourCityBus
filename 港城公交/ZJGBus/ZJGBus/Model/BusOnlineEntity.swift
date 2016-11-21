@@ -15,22 +15,20 @@ class BusOnlineEntity: BaseEntity,DictModelProtocol
     {
         return ["lists":"BusOnlineInfo"]
     }
-    class func startRequestWith(_ runPathId:String?,flag:String?,completionHandler:(_ dataModel:BusOnlineEntity?)->Void)->Void
+    class func startRequestWith(_ runPathId:String?,flag:String?,completionHandler:@escaping (_ dataModel:BusOnlineEntity?)->Void)->Void
     {
-        
-        Alamofire.request(.POST, BASE_URL+"bus/gpsForRPF", parameters: ["rpId":runPathId!,"flag":flag!]).responseJSON
-        {(request, response, result) in
-                if (result.value != nil)
+        Alamofire.request(BASE_URL+"bus/gpsForRPF", method: .post, parameters: ["rpId":runPathId!,"flag":flag!], encoding: JSONEncoding.default).responseJSON { (DataResponse) in
+            if (DataResponse.result.value != nil)
+            {
+                if let value = (DataResponse.result.value as! NSDictionary)["result"]
                 {
-                    if let value = (result.value as! NSDictionary)["result"]
-                    {
-                        let busOlineEntity = BusOnlineEntity.objectWithKeyValues((value as!NSDictionary)) as!BusOnlineEntity
-                        completionHandler(dataModel: busOlineEntity)
-                    }else
-                    {
-                        completionHandler(dataModel: nil)
-                    }
+                    let busOlineEntity = BusOnlineEntity.objectWithKeyValues((value as!NSDictionary)) as!BusOnlineEntity
+                    completionHandler(busOlineEntity)
+                }else
+                {
+                    completionHandler(nil)
                 }
+            }
         }
     }
 }

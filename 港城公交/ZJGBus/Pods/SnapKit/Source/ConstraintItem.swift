@@ -28,7 +28,7 @@
 #endif
 
 
-open class ConstraintItem: Equatable {
+public class ConstraintItem: Equatable {
     
     internal weak var target: AnyObject?
     internal let attributes: ConstraintAttributes

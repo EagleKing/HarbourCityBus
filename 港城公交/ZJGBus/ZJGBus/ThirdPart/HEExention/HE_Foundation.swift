@@ -11,10 +11,10 @@ import Foundation
 class HEFoundation {
     
     static let set = NSSet(array: [
-                                    URL.classForCoder(),
-                                    Date.classForCoder(),
+                                    NSURL.classForCoder(),
+                                    NSDate.classForCoder(),
                                     NSValue.classForCoder(),
-                                    Data.classForCoder(),
+                                    NSData.classForCoder(),
                                     NSError.classForCoder(),
                                     NSArray.classForCoder(),
                                     NSDictionary.classForCoder(),

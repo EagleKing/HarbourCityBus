@@ -10,7 +10,8 @@ import UIKit
 
 extension UIColor {
     convenience init (hex:String) {
-        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercased()
+
+        var cString:String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {
             cString = (cString as NSString).substring(from: 1)
@@ -55,7 +56,7 @@ extension CALayer {
 }
 
 extension CGPath {
-    class func rescaleForFrame(path: CGPath, frame: CGRect) -> CGPath{
+    class func rescaleForFrame(_ path: CGPath, frame: CGRect) -> CGPath{
         let boundingBox = path.boundingBox
         let boundingBoxAspectRatio = boundingBox.width/boundingBox.height
         let viewAspectRatio = frame.width/frame.height

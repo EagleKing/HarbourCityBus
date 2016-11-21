@@ -15,7 +15,7 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
     let flags = ["1","3"]
     var currentIndex = 0
 
-    var dataSource = [:]
+    var dataSource : NSDictionary = [:]
     
     var busOnlineLists = [BusOnlineInfo]()
     {

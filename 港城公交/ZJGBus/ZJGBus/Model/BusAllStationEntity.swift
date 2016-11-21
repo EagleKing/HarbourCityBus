@@ -58,24 +58,22 @@ class BusAllStationEntity: BaseEntity,DictModelProtocol
     {
         return ["xiaxing":"StationInfo","shangxing":"StationInfo"]
     }
-    class func startRequestWith(_ RunPathID:String ,completionHandler:(_ dataModel:BusAllStationEntity?) -> Void)
+    class func startRequestWith(_ RunPathID:String ,completionHandler:@escaping (_ dataModel:BusAllStationEntity?) -> Void)
     {
-        Alamofire.request(.POST, BASE_URL+"bus/searchSSR", parameters:["rpId":RunPathID]).responseJSON
-        { (request, response, result) in
-            
-            if let value = result.value
+        
+        Alamofire.request(BASE_URL+"bus/searchSSR", method: .post, parameters: ["rpId":RunPathID], encoding: JSONEncoding.default).responseJSON { (DataResponse) in
+            if let value = DataResponse.result.value
             {
                 if ((value as! NSDictionary)["result"] != nil)
                 {
                     print("\(value)")
                     let busAllStationEntity = self.objectWithKeyValues((value as! NSDictionary)["result"]as! NSDictionary) as! BusAllStationEntity
-                    completionHandler(dataModel:busAllStationEntity)
+                    completionHandler(busAllStationEntity)
                 }else
                 {
-                    completionHandler(dataModel:nil)
+                    completionHandler(nil)
                 }
             }
-            
         }
     }
 }

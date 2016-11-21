@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 @IBDesignable
-class StarButton: UIButton {
+class StarButton: UIButton,CAAnimationDelegate {
     
     fileprivate var starShape: CAShapeLayer!
     fileprivate var outerRingShape: CAShapeLayer!
@@ -87,7 +87,7 @@ class StarButton: UIButton {
         if fillRingShape == nil {
             fillRingShape = CAShapeLayer()
             fillRingShape.path = Paths.circle(frameWithInset())
-            fillRingShape.bounds = fillRingShape.path.boundingBox
+            fillRingShape.bounds = (fillRingShape.path?.boundingBox)!
             fillRingShape.fillColor = favoriteColor.cgColor
             fillRingShape.lineWidth = lineWidth
             fillRingShape.position = CGPoint(x: fillRingShape.bounds.width/2, y: fillRingShape.bounds.height/2)
@@ -113,10 +113,10 @@ class StarButton: UIButton {
             starFrame.size.height = starFrame.height/2.5
             
             starShape = CAShapeLayer()
-            starShape.path = CGPath.rescaleForFrame(path: Paths.star, frame: starFrame)
-            starShape.bounds = starShape.path.boundingBox
+            starShape.path = CGPath.rescaleForFrame(Paths.star, frame: starFrame)
+            starShape.bounds = (starShape.path?.boundingBox)!
             starShape.fillColor = notFavoriteColor.cgColor
-            starShape.position = CGPoint(x: outerRingShape.path.boundingBox.width/2, y: outerRingShape.path.boundingBox.height/2)
+            starShape.position = CGPoint(x: (outerRingShape.path?.boundingBox.width)!/2, y: (outerRingShape.path?.boundingBox.height)!/2)
             starShape.transform = CATransform3DIdentity
             starShape.opacity = 0.5
             self.layer.addSublayer(starShape)
@@ -217,8 +217,7 @@ class StarButton: UIButton {
         fillRingShape.add(fillCircleAnimation, forKey: "fill circle Animation")
         fillRingShape.transform = CATransform3DIdentity
     }
-    
-    override func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if let key = anim.value(forKey: starKey) as? String {
             switch(key) {
             case (favoriteKey):
@@ -270,7 +269,9 @@ class StarButton: UIButton {
         CATransaction.commit()
     }
     
-    override func animationDidStart(_ anim: CAAnimation) {
+
+    func animationDidStart(_ anim: CAAnimation) {
+
         disableTouch()
     }
     

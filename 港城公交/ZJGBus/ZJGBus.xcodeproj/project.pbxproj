@@ -13,9 +13,6 @@
 		A917CA941D59719E00350647 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA931D59719E00350647 /* BaseViewController.swift */; };
 		A917CAA91D59748E00350647 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAA71D59748E00350647 /* SearchResultTableViewCell.swift */; };
 		A917CAAA1D59748E00350647 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A917CAA81D59748E00350647 /* SearchResultTableViewCell.xib */; };
-		A917CAAC1D59AF3000350647 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAAB1D59AF3000350647 /* StarButton.swift */; };
-		A917CAAF1D59AF9E00350647 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAAD1D59AF9E00350647 /* Paths.swift */; };
-		A917CAB01D59AF9E00350647 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAAE1D59AF9E00350647 /* Extensions.swift */; };
 		A917CAB21D59B88D00350647 /* BusInfoWithRunPathID.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */; };
 		A917CAB51D59C4BD00350647 /* BusLineInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */; };
 		A917CAB61D59C4BD00350647 /* BusLineInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */; };
@@ -38,6 +35,9 @@
 		A9D946F41D584A28000DBD60 /* HE_Dict2Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D946F11D584A28000DBD60 /* HE_Dict2Model.swift */; };
 		A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D946F21D584A28000DBD60 /* HE_Foundation.swift */; };
 		A9D946F61D584A28000DBD60 /* HE_Model2Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D946F31D584A28000DBD60 /* HE_Model2Dict.swift */; };
+		A9DA8F381DE323AA009F1BBB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA8F351DE323AA009F1BBB /* Extensions.swift */; };
+		A9DA8F391DE323AA009F1BBB /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA8F361DE323AA009F1BBB /* Paths.swift */; };
+		A9DA8F3A1DE323AA009F1BBB /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DA8F371DE323AA009F1BBB /* StarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,9 +62,6 @@
 		A917CA931D59719E00350647 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A917CAA71D59748E00350647 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		A917CAA81D59748E00350647 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
-		A917CAAB1D59AF3000350647 /* StarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
-		A917CAAD1D59AF9E00350647 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
-		A917CAAE1D59AF9E00350647 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A917CAB11D59B88D00350647 /* BusInfoWithRunPathID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusInfoWithRunPathID.swift; sourceTree = "<group>"; };
 		A917CAB31D59C4BD00350647 /* BusLineInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A917CAB41D59C4BD00350647 /* BusLineInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusLineInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -89,6 +86,9 @@
 		A9D946F11D584A28000DBD60 /* HE_Dict2Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HE_Dict2Model.swift; sourceTree = "<group>"; };
 		A9D946F21D584A28000DBD60 /* HE_Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HE_Foundation.swift; sourceTree = "<group>"; };
 		A9D946F31D584A28000DBD60 /* HE_Model2Dict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HE_Model2Dict.swift; sourceTree = "<group>"; };
+		A9DA8F351DE323AA009F1BBB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A9DA8F361DE323AA009F1BBB /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		A9DA8F371DE323AA009F1BBB /* StarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		B051599968B1B2DB4C2AEFB3 /* Pods-ZJGBus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,9 +192,9 @@
 		A97364331D533BE400194CE7 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
-				A917CAAD1D59AF9E00350647 /* Paths.swift */,
-				A917CAAE1D59AF9E00350647 /* Extensions.swift */,
-				A917CAAB1D59AF3000350647 /* StarButton.swift */,
+				A9DA8F351DE323AA009F1BBB /* Extensions.swift */,
+				A9DA8F361DE323AA009F1BBB /* Paths.swift */,
+				A9DA8F371DE323AA009F1BBB /* StarButton.swift */,
 				A9D946F01D584A28000DBD60 /* HEExention */,
 			);
 			path = ThirdPart;
@@ -241,7 +241,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Eagle;
 				TargetAttributes = {
 					A97364141D51BFB900194CE7 = {
@@ -346,8 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A917CAAF1D59AF9E00350647 /* Paths.swift in Sources */,
-				A917CAAC1D59AF3000350647 /* StarButton.swift in Sources */,
+				A9DA8F391DE323AA009F1BBB /* Paths.swift in Sources */,
 				A95BF78F1D5C4C040070C2F1 /* BusInfoDetailViewController.swift in Sources */,
 				A917CA901D596F8E00350647 /* CollectionViewController.swift in Sources */,
 				A973641B1D51BFB900194CE7 /* ViewController.swift in Sources */,
@@ -361,13 +360,14 @@
 				A973642C1D51C48500194CE7 /* ConstantAndThirdPart.swift in Sources */,
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
 				A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */,
-				A917CAB01D59AF9E00350647 /* Extensions.swift in Sources */,
 				A95BF7951D5C5B1E0070C2F1 /* BusStationTableViewCell.swift in Sources */,
 				A95BF79B1D5DAAE50070C2F1 /* onlineBusTableViewCell.swift in Sources */,
+				A9DA8F381DE323AA009F1BBB /* Extensions.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
 				A97364311D51D1A500194CE7 /* LineListEntity.swift in Sources */,
 				A917CA921D596FBA00350647 /* NavigationViewController.swift in Sources */,
 				A9D946F41D584A28000DBD60 /* HE_Dict2Model.swift in Sources */,
+				A9DA8F3A1DE323AA009F1BBB /* StarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,8 +407,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -452,8 +454,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -472,6 +476,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -480,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40AB6EEEFA29BCDAA84F1D91 /* Pods-ZJGBus.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -502,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B051599968B1B2DB4C2AEFB3 /* Pods-ZJGBus.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

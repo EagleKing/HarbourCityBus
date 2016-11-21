@@ -40,7 +40,7 @@ internal struct ConstraintAttributes: OptionSet {
         self.rawValue = 0
     }
     
-    internal fileprivate(set) var rawValue: UInt
+    internal private(set) var rawValue: UInt
     internal static var allZeros: ConstraintAttributes { return self.init(0) }
     internal static func convertFromNilLiteral() -> ConstraintAttributes { return self.init(0) }
     internal var boolValue: Bool { return self.rawValue != 0 }

@@ -81,6 +81,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         searchBar.layer.shadowRadius = 3
         
         self.view.addSubview(searchBar)
+        
         searchBar.snp.makeConstraints
         { (make) in
                 make.top.equalTo(self.view.snp.top).offset(20)
@@ -231,7 +232,6 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             
         }else
         {
-            
             let busInfoDetailVC = BusInfoDetailViewController()
             busInfoDetailVC.runPathID = currectRunPathIdForBusInfo
             busInfoDetailVC.currentIndex = (indexPath as NSIndexPath).row

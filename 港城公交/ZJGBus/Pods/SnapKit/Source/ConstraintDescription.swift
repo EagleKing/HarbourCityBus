@@ -28,7 +28,7 @@
 #endif
 
 
-open class ConstraintDescription {
+public class ConstraintDescription {
     
     internal let view: ConstraintView
     internal var attributes: ConstraintAttributes

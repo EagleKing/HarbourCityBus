@@ -28,29 +28,29 @@
 #endif
 
 
-open class ConstraintMakerPriortizable: ConstraintMakerFinalizable {
+public class ConstraintMakerPriortizable: ConstraintMakerFinalizable {
     
     @discardableResult
-    open func priority(_ amount: ConstraintPriorityTarget) -> ConstraintMakerFinalizable {
+    public func priority(_ amount: ConstraintPriorityTarget) -> ConstraintMakerFinalizable {
         self.description.priority = amount
         return self
     }
     
     @available(*, deprecated:3.0, message:"Use priority(_ amount: ConstraintPriorityTarget) instead.")
     @discardableResult
-    open func priorityRequired() -> ConstraintMakerFinalizable {
+    public func priorityRequired() -> ConstraintMakerFinalizable {
         return self.priority(1000)
     }
     
     @available(*, deprecated:3.0, message:"Use priority(_ amount: ConstraintPriorityTarget) instead.")
     @discardableResult
-    open func priorityHigh() -> ConstraintMakerFinalizable {
+    public func priorityHigh() -> ConstraintMakerFinalizable {
         return self.priority(750)
     }
     
     @available(*, deprecated:3.0, message:"Use priority(_ amount: ConstraintPriorityTarget) instead.")
     @discardableResult
-    open func priorityMedium() -> ConstraintMakerFinalizable {
+    public func priorityMedium() -> ConstraintMakerFinalizable {
         #if os(iOS) || os(tvOS)
             return self.priority(500)
         #else
@@ -60,7 +60,7 @@ open class ConstraintMakerPriortizable: ConstraintMakerFinalizable {
     
     @available(*, deprecated:3.0, message:"Use priority(_ amount: ConstraintPriorityTarget) instead.")
     @discardableResult
-    open func priorityLow() -> ConstraintMakerFinalizable {
+    public func priorityLow() -> ConstraintMakerFinalizable {
         return self.priority(250)
     }
     

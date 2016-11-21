@@ -41,7 +41,7 @@ extension NSObject{
             let properties =  class_copyPropertyList(cls, &count)                         //获取属性列表
             for i in 0..<count{
                 
-                let property = properties[Int(i)]                                         //获取模型中的某一个属性
+                let property = properties?[Int(i)]                                         //获取模型中的某一个属性
                 
                 let propertyType = String(cString: property_getAttributes(property))  //属性类型
                 
@@ -49,7 +49,7 @@ extension NSObject{
                 if propertyKey == "description"{ continue  }                              //description是Foundation中的计算型属性，是实例的描述信息
                 
                 
-                var value:AnyObject! = dict[propertyKey]      //取得字典中的值
+                var value:AnyObject! = dict.value(forKey: propertyKey) as AnyObject!     //取得字典中的值
                 if value == nil {continue}
                 
                 let valueType =  "\(value.classForCoder)"     //字典中保存的值得类型
@@ -64,16 +64,16 @@ extension NSObject{
                     }
                 }else if valueType == "NSArray"{              //值是数组。 数组中存放字典。 将字典转换成模型。 如果协议中没有定义映射关系，就不做处理
                     
-                    if self.responds(to: "customClassMapping") {
-                        
-                        
-                        
+//                    if self.responds(to: #selector(DictModelProtocol.customClassMapping)) {
+//                        
+//                        
+                    
                         if var subModelClassName = cls.customClassMapping()?[propertyKey]{   //子模型的类名称
                             subModelClassName =  HEFoundation.bundlePath+"."+subModelClassName
                             if let subModelClass = NSClassFromString(subModelClassName){
                                 value = subModelClass.objectArrayWithKeyValuesArray(value as! NSArray);
                             }
-                        }
+                     //   }
                     }
                     
                 }
@@ -98,7 +98,7 @@ extension NSObject{
         }
         var result = [AnyObject]()
         for item in array{
-            let type = "\(item.classForCoder)"
+            let type = "\((item as AnyObject).classForCoder)"
             if type == "NSDictionary"{
                 if let model = objectWithKeyValues(item as! NSDictionary){
                     result.append(model)
@@ -108,13 +108,13 @@ extension NSObject{
                     result.append(model)
                 }
             }else{
-                result.append(item)
+                result.append(item as AnyObject)
             }
         }
         if result.count==0{
             return nil
         }else{
-            return result
+            return result as NSArray?
         }
     }
 }
