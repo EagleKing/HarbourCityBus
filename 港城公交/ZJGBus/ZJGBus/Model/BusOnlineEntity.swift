@@ -15,7 +15,7 @@ class BusOnlineEntity: BaseEntity,DictModelProtocol
     {
         return ["lists":"BusOnlineInfo"]
     }
-    class func startRequestWith(runPathId:String?,flag:String?,completionHandler:(dataModel:BusOnlineEntity?)->Void)->Void
+    class func startRequestWith(_ runPathId:String?,flag:String?,completionHandler:(_ dataModel:BusOnlineEntity?)->Void)->Void
     {
         
         Alamofire.request(.POST, BASE_URL+"bus/gpsForRPF", parameters: ["rpId":runPathId!,"flag":flag!]).responseJSON

@@ -19,7 +19,7 @@ class BusInfoWithRunPathID: BaseEntity
     var endStation = ""
     var endTime = ""
     var startTime1 = ""
-    class  func startRequest(runPathId:String,flag:String ,completionHander:(dataModel:BusInfoWithRunPathID)->Void)
+    class  func startRequest(_ runPathId:String,flag:String ,completionHander:(_ dataModel:BusInfoWithRunPathID)->Void)
     {
         Alamofire.request(.POST, BASE_URL+"common/busQuery", parameters: ["runPathId":runPathId,"flag":flag]).responseJSON
             { (request, response, result) in

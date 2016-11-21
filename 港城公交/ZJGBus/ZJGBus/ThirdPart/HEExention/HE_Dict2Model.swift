@@ -26,7 +26,7 @@ import Foundation
 extension NSObject{
  
     //dict: 要进行转换的字典
-    class func objectWithKeyValues(dict: NSDictionary)->AnyObject?{
+    class func objectWithKeyValues(_ dict: NSDictionary)->AnyObject?{
         if HEFoundation.isClassFromFoundation(self) {
             print("只有自定义模型类才可以字典转模型")
             assert(true)
@@ -43,9 +43,9 @@ extension NSObject{
                 
                 let property = properties[Int(i)]                                         //获取模型中的某一个属性
                 
-                let propertyType = String.fromCString(property_getAttributes(property))!  //属性类型
+                let propertyType = String(cString: property_getAttributes(property))  //属性类型
                 
-                let propertyKey = String.fromCString(property_getName(property))!         //属性名称
+                let propertyKey = String(cString: property_getName(property))         //属性名称
                 if propertyKey == "description"{ continue  }                              //description是Foundation中的计算型属性，是实例的描述信息
                 
                 
@@ -64,7 +64,7 @@ extension NSObject{
                     }
                 }else if valueType == "NSArray"{              //值是数组。 数组中存放字典。 将字典转换成模型。 如果协议中没有定义映射关系，就不做处理
                     
-                    if self.respondsToSelector("customClassMapping") {
+                    if self.responds(to: "customClassMapping") {
                         
                         
                         
@@ -92,7 +92,7 @@ extension NSObject{
      
      当数组中嵌套数组， 内部的数组包含字典，cls就是内部数组中的字典对应的模型
      */
-    class func objectArrayWithKeyValuesArray(array: NSArray)->NSArray?{
+    class func objectArrayWithKeyValuesArray(_ array: NSArray)->NSArray?{
         if array.count == 0{
             return nil
         }

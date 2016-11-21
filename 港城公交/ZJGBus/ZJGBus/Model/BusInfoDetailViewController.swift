@@ -30,8 +30,7 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
                         let uniDataSource = UniDataSoure()
                         uniDataSource.busOnlineInfo = currentBusEntity
                         uniDataSource.isStation = false
-                        busAllstation.currentLines.insert(uniDataSource, atIndex:i)
-                        
+                        busAllstation.currentLines.insert(uniDataSource, at:i)
                     }
                 }
             }
@@ -46,19 +45,19 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
         didSet
         {
             stationInfosTableView.reloadData()
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        stationInfosTableView.registerNib(UINib.init(nibName:"BusStationTableViewCell", bundle:nil), forCellReuseIdentifier:busStationCellID)
-        stationInfosTableView.registerNib(UINib.init(nibName:"onlineBusTableViewCell", bundle:nil), forCellReuseIdentifier:onlineBusCellID)
+        stationInfosTableView.register(UINib.init(nibName:"BusStationTableViewCell", bundle:nil), forCellReuseIdentifier:busStationCellID)
+        stationInfosTableView.register(UINib.init(nibName:"onlineBusTableViewCell", bundle:nil), forCellReuseIdentifier:onlineBusCellID)
         self.navigationItem.title = "211路"
         self.navigationItem.prompt = "路线详情"
         stationInfosTableView.tableFooterView = UIView()
         //站点信息
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         BusAllStationEntity.startRequestWith(runPathID)
         { (dataModel) in
             
@@ -69,45 +68,58 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
             self.busAllstation = dataModel!
             BusOnlineEntity.startRequestWith(self.runPathID, flag:self.flags[self.currentIndex], completionHandler:
             { (dataModel) in
-        
+                print(self.busAllstation.currentLines.count)
                if (dataModel?.lists != nil)
                {
                 self.busOnlineLists = dataModel?.lists as! [BusOnlineInfo]
                }
+                let uniDataSource = UniDataSoure()
+                //uniDataSource.busOnlineInfo = UniDataSoure()
+                uniDataSource.isStation = false
+               self.busAllstation.currentLines =  self.busAllstation.currentLinesFunc()
+               self.busAllstation.currentLines.insert(uniDataSource, at:5)
+                //self.busAllstation.currentLines().removeLast()
+                self.stationInfosTableView.reloadData()
+                
+                print(self.busAllstation.currentLines.count)
+                
                 
             })
             
         }
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
        if (busAllstation.currentLines.count != 0)
        {
             return (busAllstation.currentLines.count)
        }else {return 0}
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if (busAllstation.currentLines[indexPath.row]).isStation
+        if (busAllstation.currentLines[(indexPath as NSIndexPath).row]).isStation
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier(busStationCellID) as! BusStationTableViewCell
-            cell.stationLab.text = (busAllstation.currentLines[indexPath.row] ).stationInfo!.busStationName
+            let cell = tableView.dequeueReusableCell(withIdentifier: busStationCellID) as! BusStationTableViewCell
+            cell.stationLab.text = (busAllstation.currentLines[(indexPath as NSIndexPath).row] ).stationInfo!.busStationName
             return cell
         }else
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier(onlineBusCellID) as! onlineBusTableViewCell
-            let busOnlineInfo = (busAllstation.currentLines[indexPath.row] ).busOnlineInfo
-            cell.plateNoLab.text = busOnlineInfo!.numberOfPlate
-            cell.timeLab.text = self.calcutelate(busOnlineInfo!.gPSTime)
-            cell.currentStationLab.text = busOnlineInfo?.busStationName
+            
+            
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: onlineBusCellID) as! onlineBusTableViewCell
+//            let busOnlineInfo = (busAllstation.currentLines[indexPath.row] ).busOnlineInfo
+//            cell.plateNoLab.text = busOnlineInfo!.numberOfPlate
+//            cell.timeLab.text = self.calcutelate(busOnlineInfo!.gPSTime)
+//            cell.currentStationLab.text = busOnlineInfo?.busStationName
             return cell
         }
     }
-    func calcutelate(busGPSTime:String) -> String
+    func calcutelate(_ busGPSTime:String) -> String
     {
         return "暂时没算"
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 59
     }
 }

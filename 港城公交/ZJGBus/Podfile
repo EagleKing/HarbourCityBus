@@ -1,7 +1,7 @@
 platform :ios, '8.0'
 use_frameworks!
 target "ZJGBus" do
-pod 'Alamofire', '~> 2.0.2'
-pod 'SnapKit'
+pod 'Alamofire', '~> 4.2.0'
+pod 'SnapKit', '~> 3.0.2'
 pod 'MBProgressHUD'
 end
