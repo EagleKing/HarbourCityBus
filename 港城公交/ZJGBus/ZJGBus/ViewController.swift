@@ -192,7 +192,9 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             
             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             let busInfosQueue = dispatch_queue_create("com.rockstar.businfosQueue",DISPATCH_QUEUE_SERIAL)
+            
             let globalBackgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+            
             dispatch_set_target_queue(busInfosQueue, globalBackgroundQueue)//改变优先级
 
             let lineEnity:LineListEntity = lineList.lines![indexPath.row] as! LineListEntity
