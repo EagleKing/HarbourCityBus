@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MBProgressHUD.xcscheme</key>
+		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,25 +24,45 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftMessages-SwiftMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftMessages.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0D5B043FE5FEA90AC627CDD13F08443C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49FF8EEC42BD68C52649884E9D57B4FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5DE8A163C77CF97300E12BF147C04DC</key>
+		<key>CADDA7B8A7F5C1A3D6421293052397B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE69C256BDFB1C16F41A5245CBD8EA0D</key>
+		<key>E30CA1A9FD95C1FF06C2A8847196943B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBA6001481CEA0EBA031CC5C94508FAA</key>
+		<key>FF31A0EEBFEAAF8A152C76A1647033F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

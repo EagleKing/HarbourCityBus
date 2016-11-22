@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CFD22A02FE6A17960608E74 /* Pods_ZJGBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C66A51733518001844E910 /* Pods_ZJGBus.framework */; };
+		A904E0D31DE47C450084196F /* AlamofireObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904E0D21DE47C450084196F /* AlamofireObjectMapper.swift */; };
 		A917CA901D596F8E00350647 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA8F1D596F8E00350647 /* CollectionViewController.swift */; };
 		A917CA921D596FBA00350647 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA911D596FBA00350647 /* NavigationViewController.swift */; };
 		A917CA941D59719E00350647 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A917CA931D59719E00350647 /* BaseViewController.swift */; };
@@ -56,7 +57,8 @@
 /* Begin PBXFileReference section */
 		40AB6EEEFA29BCDAA84F1D91 /* Pods-ZJGBus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJGBus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJGBus/Pods-ZJGBus.debug.xcconfig"; sourceTree = "<group>"; };
 		78C66A51733518001844E910 /* Pods_ZJGBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJGBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A917CA8B1D5884F500350647 /* ZJGBus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZJGBus-Bridging-Header.h"; sourceTree = "<group>"; };
+		A904E0D11DE47C450084196F /* AlamofireObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlamofireObjectMapper.h; sourceTree = "<group>"; };
+		A904E0D21DE47C450084196F /* AlamofireObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireObjectMapper.swift; sourceTree = "<group>"; };
 		A917CA8F1D596F8E00350647 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		A917CA911D596FBA00350647 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		A917CA931D59719E00350647 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 				A97364161D51BFB900194CE7 /* Products */,
 				2FB984831C8DEBCF22338FE4 /* Pods */,
 				2ECDE6DB68C429BECB88C51A /* Frameworks */,
-				A917CA8B1D5884F500350647 /* ZJGBus-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +161,8 @@
 			children = (
 				A97364331D533BE400194CE7 /* ThirdPart */,
 				A973642B1D51C48500194CE7 /* ConstantAndThirdPart.swift */,
+				A904E0D11DE47C450084196F /* AlamofireObjectMapper.h */,
+				A904E0D21DE47C450084196F /* AlamofireObjectMapper.swift */,
 				A917CAA61D59739E00350647 /* CellView */,
 				A973642D1D51C64F00194CE7 /* Model */,
 				A97364181D51BFB900194CE7 /* AppDelegate.swift */,
@@ -361,6 +364,7 @@
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
 				A9D946F51D584A28000DBD60 /* HE_Foundation.swift in Sources */,
 				A95BF7951D5C5B1E0070C2F1 /* BusStationTableViewCell.swift in Sources */,
+				A904E0D31DE47C450084196F /* AlamofireObjectMapper.swift in Sources */,
 				A95BF79B1D5DAAE50070C2F1 /* onlineBusTableViewCell.swift in Sources */,
 				A9DA8F381DE323AA009F1BBB /* Extensions.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
@@ -488,6 +492,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 45STBC33S7;
@@ -497,7 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rockstar.ZJGBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ZJGBus-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
@@ -511,6 +516,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 45STBC33S7;
@@ -520,7 +526,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rockstar.ZJGBus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ZJGBus-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};

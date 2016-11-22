@@ -23,6 +23,7 @@ class BusLineInfoTableViewCell: UITableViewCell {
             startAndEndTimeLab.text = BusInfo.startTime + "~" + BusInfo.endTime
             //
             runPathNameLab.text = BusInfo.runPathName
+        
         }
     }
     @IBOutlet weak var intervalTimeLab: UILabel!

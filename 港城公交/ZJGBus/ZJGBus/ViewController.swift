@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ObjectMapper
 
 enum searchResultType
 {
@@ -20,8 +20,6 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
     let customSearchResultCellID = "customSearchResultCellID"
     let BusInfoCellID = "BusInfoCell"
     var currectRunPathIdForBusInfo = ""
-    
-    
     
     var tableViewType = searchResultType.searchResultType
     var searchBar = UISearchBar()
@@ -37,11 +35,10 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
                     resultTableView.separatorStyle = .none
                     resultTableView.backgroundColor = UIColor.groupTableViewBackground
                     self.resultTableView.reloadData()
-                    MBProgressHUD.hide(for: self.view, animated: true)
                 }
             }
         }
-    var lineList = LineList()
+    var lineList:LineList = Mapper<LineList>().map(JSON: [:])!
     {
         didSet
         {
@@ -118,7 +115,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         {
             resultTableView.separatorStyle = .singleLineEtched
         }
-        MBProgressHUD.showAdded(to: self.view, animated:true)
+     
         
         LineList.startRequestWith(searchBar.text, completionHandler:
         {lineList in
@@ -127,9 +124,6 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
                 {
                    self.lineList = lineList! 
                 }
-            
-                MBProgressHUD.hide(for: self.view, animated:true)
-            
         })
     }
     //MARK:tableview delegate/datasource
@@ -171,6 +165,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             cell.numberOfBus.text = lineEnity.runPathName
             cell.startAndEndTimeLab.text = lineEnity.startName
             cell.intervalTimeLab.text = lineEnity.endName
+            
             return cell
         }else
         {
@@ -190,8 +185,6 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         tableView.deselectRow(at: indexPath, animated: true)
         if tableViewType == .searchResultType
         {
-            
-            MBProgressHUD.showAdded(to: self.view, animated: true)
             let busInfosQueue = DispatchQueue(label: "com.rockstar.businfosQueue",attributes: [])
             let globalBackgroundQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high)
             busInfosQueue.setTarget(queue: globalBackgroundQueue)//改变优先级

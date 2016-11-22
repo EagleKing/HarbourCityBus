@@ -8,46 +8,51 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
-
-class LineListEntity: BaseEntity
+class LineListEntity: BaseEntity,Mappable
 {
-    var endId:String = ""
-    var endName:String = ""
-    var runPathId:String = ""
+    var endId:String       = ""
+    var endName:String     = ""
+    var runPathId:String   = ""
     var runPathName:String = ""
-    var srartId:String = ""
-    var startName:String = ""
+    var srartId:String     = ""
+    var startName:String   = ""
+    required init?(map: Map) {
+        
+    }
+    func mapping(map: Map) {
+        endId <- map["endId"]
+        endName <- map["endName"]
+        runPathId <- map["runPathId"]
+        runPathName <- map["runPathName"]
+        srartId <- map["srartId"]
+        startName <- map["startName"]
+    }
 }
-class LineList:BaseEntity,DictModelProtocol
+class LineList:BaseEntity,Mappable
 {
-    var lines : NSArray?
-    class func customClassMapping() -> [String : String]?
-    {
-        return ["lines":"LineListEntity"]
+    var lines : [AnyObject]?
+    required init?(map: Map) {
+    }
+    func mapping(map: Map) {
+        lines <- map["lines"]
     }
     class func startRequestWith(_ name:String?, completionHandler:@escaping (_ dataModel:LineList?) -> Void)
     {
-        
         if name != nil
         {
-            Alamofire.request(BaseEntity.BASE_URL+"bus/allStationOfRPName", method: .post, parameters: ["name":name!], encoding: JSONEncoding.default).responseJSON(completionHandler: { (DataResponse) in
-                if let value = DataResponse.result.value
-                {
-                    print(value)
-                    
-                    if ((value as! NSDictionary)["result"] != nil)// 这里也是坑
-                    {
-                        let lineList = self.objectWithKeyValues((((value as! NSDictionary)["result"]) as! NSDictionary)) as! LineList
-                        completionHandler(lineList)
-                        //尼玛，字典转模型的坑终于踩完了
-                    }else
-                    {
-                        completionHandler(nil)
-                    }
-                    
-                    
-                }
+            let params = ["name":name!]
+            
+            Alamofire.request(BaseEntity.BASE_URL+"bus/allStationOfRPName", method: .get, parameters: params, encoding: URLEncoding.default)
+                         .responseJSON(completionHandler: { (DataResponse) in
+                            
+                            
+                            let dataModel = Mapper<LineList>().map(JSON: DataResponse.result.value as! [String : Any]);
+                            completionHandler(dataModel);
+                            
+                            
+                            
             })
         }
     }

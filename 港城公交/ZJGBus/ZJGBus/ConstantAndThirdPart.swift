@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SnapKit
+import SwiftMessages
+import ObjectMapper
 
 let phoneWidth = UIScreen.main.bounds.size.width
 let phoneHeight = UIScreen.main.bounds.size.height

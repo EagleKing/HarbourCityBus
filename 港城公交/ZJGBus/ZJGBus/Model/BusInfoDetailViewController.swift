@@ -45,7 +45,6 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
         didSet
         {
             stationInfosTableView.reloadData()
-            MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
     override func viewDidLoad()
@@ -57,7 +56,7 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
         self.navigationItem.prompt = "路线详情"
         stationInfosTableView.tableFooterView = UIView()
         //站点信息
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         BusAllStationEntity.startRequestWith(runPathID)
         { (dataModel) in
             
@@ -104,9 +103,6 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
             return cell
         }else
         {
-            
-            
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: onlineBusCellID) as! onlineBusTableViewCell
 //            let busOnlineInfo = (busAllstation.currentLines[indexPath.row] ).busOnlineInfo
 //            cell.plateNoLab.text = busOnlineInfo!.numberOfPlate
