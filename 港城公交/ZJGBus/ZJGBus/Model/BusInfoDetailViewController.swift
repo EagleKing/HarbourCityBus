@@ -70,7 +70,7 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
                 print(self.busAllstation.currentLines.count)
                if (dataModel?.lists != nil)
                {
-                self.busOnlineLists = dataModel?.lists as! [BusOnlineInfo]
+                self.busOnlineLists = (dataModel?.lists!)!
                }
                 let uniDataSource = UniDataSoure()
                 //uniDataSource.busOnlineInfo = UniDataSoure()

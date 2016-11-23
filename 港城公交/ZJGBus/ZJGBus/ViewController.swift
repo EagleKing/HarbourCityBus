@@ -38,7 +38,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
                 }
             }
         }
-    var lineList:LineList = Mapper<LineList>().map(JSON: [:])!
+    var lineList:LineList = LineList()
     {
         didSet
         {
@@ -187,10 +187,10 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         {
             let busInfosQueue = DispatchQueue(label: "com.rockstar.businfosQueue",attributes: [])
             let globalBackgroundQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high)
-            busInfosQueue.setTarget(queue: globalBackgroundQueue)//改变优先级
+        //    busInfosQueue.setTarget(queue: globalBackgroundQueue)//改变优先级
 
 
-            let lineEnity:LineListEntity = lineList.lines![(indexPath as NSIndexPath).row] as! LineListEntity
+            let lineEnity:LineListEntity = lineList.lines![(indexPath as NSIndexPath).row] 
             currectRunPathIdForBusInfo = lineEnity.runPathId//路线id
             let flags = ["1","2"]
             

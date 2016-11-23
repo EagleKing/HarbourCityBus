@@ -19,7 +19,6 @@ class LineListEntity: BaseEntity,Mappable
     var srartId:String     = ""
     var startName:String   = ""
     required init?(map: Map) {
-        
     }
     func mapping(map: Map) {
         endId <- map["endId"]
@@ -32,11 +31,14 @@ class LineListEntity: BaseEntity,Mappable
 }
 class LineList:BaseEntity,Mappable
 {
-    var lines : [AnyObject]?
+    var lines : [LineListEntity]?
     required init?(map: Map) {
     }
     func mapping(map: Map) {
         lines <- map["lines"]
+    }
+    override init() {
+        super.init()
     }
     class func startRequestWith(_ name:String?, completionHandler:@escaping (_ dataModel:LineList?) -> Void)
     {
@@ -47,11 +49,11 @@ class LineList:BaseEntity,Mappable
             Alamofire.request(BaseEntity.BASE_URL+"bus/allStationOfRPName", method: .get, parameters: params, encoding: URLEncoding.default)
                          .responseJSON(completionHandler: { (DataResponse) in
                             
-                            
-                            let dataModel = Mapper<LineList>().map(JSON: DataResponse.result.value as! [String : Any]);
-                            completionHandler(dataModel);
-                            
-                            
+                            if let JSONData =  (DataResponse.result.value as? [String : Any])?["result"] as? [String : Any]
+                            {
+                                let dataModel = Mapper<LineList>().map(JSON: JSONData)!
+                                completionHandler(dataModel);
+                            }
                             
             })
         }

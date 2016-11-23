@@ -8,31 +8,35 @@
 
 import UIKit
 import Alamofire
-class BusOnlineEntity: BaseEntity,DictModelProtocol
+import ObjectMapper
+class BusOnlineEntity: BaseEntity,Mappable
 {
-    var lists:NSArray?
-    static func customClassMapping() -> [String : String]?
-    {
-        return ["lists":"BusOnlineInfo"]
+    var lists:[BusOnlineInfo]?
+    func mapping(map: Map) {
+            lists <- map["lists"]
     }
+    override init()
+    {
+        super.init()
+    }
+    required init?(map: Map) {}
     class func startRequestWith(_ runPathId:String?,flag:String?,completionHandler:@escaping (_ dataModel:BusOnlineEntity?)->Void)->Void
     {
-        Alamofire.request(BASE_URL+"bus/gpsForRPF", method: .post, parameters: ["rpId":runPathId!,"flag":flag!], encoding: JSONEncoding.default).responseJSON { (DataResponse) in
+        Alamofire.request(BASE_URL+"bus/gpsForRPF", method: .post, parameters: ["rpId":runPathId!,"flag":flag!], encoding: URLEncoding.default).responseJSON { (DataResponse) in
             if (DataResponse.result.value != nil)
             {
-                if let value = (DataResponse.result.value as! NSDictionary)["result"]
+                
+                if let JSONData =  (DataResponse.result.value as? [String : Any])?["result"] as? [String : Any]
                 {
-                    let busOlineEntity = BusOnlineEntity.objectWithKeyValues((value as!NSDictionary)) as!BusOnlineEntity
-                    completionHandler(busOlineEntity)
-                }else
-                {
-                    completionHandler(nil)
+                    let busOnlineEntity = Mapper<BusOnlineEntity>().map(JSON: JSONData)
+                    completionHandler(busOnlineEntity)
                 }
+                
             }
         }
     }
 }
-class BusOnlineInfo: BaseEntity
+class BusOnlineInfo: BaseEntity,Mappable
 {
     var simno = ""
     var voiceSn = ""
@@ -42,4 +46,19 @@ class BusOnlineInfo: BaseEntity
     var gPSTime = ""
     var busStationName = ""
     var busStationId = ""
+    func mapping(map: Map) {
+        simno <- map["simno"]
+        voiceSn <- map["simno"]
+        numberOfPlate <- map["simno"]
+        shangxiaxing <- map["simno"]
+        outstate <- map["simno"]
+        gPSTime <- map["simno"]
+        busStationName <- map["simno"]
+        busStationId <- map["simno"]
+    }
+    override init()
+    {
+        super.init()
+    }
+    required init?(map: Map) {}
 }
