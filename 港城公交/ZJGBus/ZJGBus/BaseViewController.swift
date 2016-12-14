@@ -37,7 +37,7 @@ class BaseViewController: UIViewController,UIGestureRecognizerDelegate {
         self.navigationController?.hidesBarsOnSwipe = true
         
     }
-    func goBack(){self.navigationController?.popViewController(animated: true)}
+    func goBack(){_ = self.navigationController?.popViewController(animated: true)}
 
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
     {

@@ -161,7 +161,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         {
             let cell:SearchResultTableViewCell = tableView.dequeueReusableCell(withIdentifier: customSearchResultCellID, for: indexPath) as! SearchResultTableViewCell
             
-            let lineEnity:LineListEntity = lineList.lines![(indexPath as NSIndexPath).row] as! LineListEntity
+            let lineEnity:LineListEntity = lineList.lines![(indexPath as NSIndexPath).row] 
             cell.numberOfBus.text = lineEnity.runPathName
             cell.startAndEndTimeLab.text = lineEnity.startName
             cell.intervalTimeLab.text = lineEnity.endName
@@ -186,10 +186,10 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         if tableViewType == .searchResultType
         {
             let busInfosQueue = DispatchQueue(label: "com.rockstar.businfosQueue",attributes: [])
-            let globalBackgroundQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high)
+            _ = DispatchQueue.global(qos: DispatchQoS.QoSClass.utility)
+           
         //    busInfosQueue.setTarget(queue: globalBackgroundQueue)//改变优先级
-
-
+            
             let lineEnity:LineListEntity = lineList.lines![(indexPath as NSIndexPath).row] 
             currectRunPathIdForBusInfo = lineEnity.runPathId//路线id
             let flags = ["1","2"]
@@ -216,13 +216,11 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
                     DispatchQueue.main.async(execute: {//返回主队列更新UI
                         //上下行3 dataModel数据model
                         self.busInfos.append(dataModel)
-                        
                         print("22222")
+
                     })
-                    
                 })
             }
-            
         }else
         {
             let busInfoDetailVC = BusInfoDetailViewController()
@@ -230,7 +228,6 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             busInfoDetailVC.currentIndex = (indexPath as NSIndexPath).row
             busInfoDetailVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(busInfoDetailVC, animated: true)
-            
         }
     }
 }
