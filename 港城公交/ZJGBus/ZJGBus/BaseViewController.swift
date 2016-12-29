@@ -36,9 +36,15 @@ class BaseViewController: UIViewController,UIGestureRecognizerDelegate {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         self.navigationController?.hidesBarsOnSwipe = true
         
+        
     }
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
+    }
+   
     func goBack(){_ = self.navigationController?.popViewController(animated: true)}
-
+    
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
     {
         if self.navigationController?.viewControllers.count == 1

@@ -7,12 +7,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ZJGBus" customModuleProvider="target">
             <connections>
                 <outlet property="changeDirectionBtn" destination="WsF-Ei-8Kk" id="yV1-t4-Noj"/>
+                <outlet property="collectBtn" destination="4I1-Jy-Ydf" id="OtZ-2z-hTy"/>
                 <outlet property="homeTableView" destination="XHv-2S-XYQ" id="9CQ-OQ-NDr"/>
                 <outlet property="searchBtn" destination="ATt-vA-g3R" id="mTd-Kf-P1Q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -54,7 +56,17 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-Y1-PxK">
                     <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GY-kM-qae">
+                            <rect key="frame" x="20" y="8" width="13" height="22"/>
+                            <state key="normal" image="收藏"/>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6GY-kM-qae" firstAttribute="leading" secondItem="kt4-Y1-PxK" secondAttribute="leadingMargin" constant="12" id="shU-cQ-P1C"/>
+                        <constraint firstItem="6GY-kM-qae" firstAttribute="centerY" secondItem="kt4-Y1-PxK" secondAttribute="centerY" id="xvc-95-EdQ"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsF-Ei-8Kk">
                     <rect key="frame" x="309" y="561" width="41" height="41"/>
@@ -64,12 +76,22 @@
                         <action selector="changeDirection:" destination="-1" eventType="touchUpInside" id="fZt-hg-DqB"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4I1-Jy-Ydf">
+                    <rect key="frame" x="319" y="531" width="21" height="22"/>
+                    <state key="normal" image="默认"/>
+                    <state key="selected" image="选中"/>
+                    <connections>
+                        <action selector="collectBusLineInfo:" destination="-1" eventType="touchUpInside" id="Mhy-Gg-XWg"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5iC-zh-GUo" firstAttribute="centerX" secondItem="XHv-2S-XYQ" secondAttribute="centerX" id="8gr-5S-y1b"/>
+                <constraint firstItem="WsF-Ei-8Kk" firstAttribute="top" secondItem="4I1-Jy-Ydf" secondAttribute="bottom" constant="8" id="AnR-Og-yJf"/>
                 <constraint firstAttribute="trailing" secondItem="WsF-Ei-8Kk" secondAttribute="trailing" constant="25" id="Dar-lC-0ZI"/>
                 <constraint firstAttribute="bottom" secondItem="5iC-zh-GUo" secondAttribute="bottom" id="FKl-Mf-LYl"/>
+                <constraint firstItem="4I1-Jy-Ydf" firstAttribute="centerX" secondItem="WsF-Ei-8Kk" secondAttribute="centerX" id="Huc-qX-4KL"/>
                 <constraint firstItem="5iC-zh-GUo" firstAttribute="top" secondItem="WsF-Ei-8Kk" secondAttribute="bottom" constant="10" id="Oqz-bJ-Ntd"/>
                 <constraint firstItem="5iC-zh-GUo" firstAttribute="top" secondItem="XHv-2S-XYQ" secondAttribute="bottom" constant="5" id="RZk-S1-Hh9"/>
                 <constraint firstItem="kt4-Y1-PxK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Scx-sr-Kmb"/>
@@ -88,6 +110,9 @@
     <resources>
         <image name="往-按钮" width="41" height="41"/>
         <image name="搜索" width="14" height="14"/>
+        <image name="收藏" width="13" height="13"/>
         <image name="返-按钮" width="41" height="41"/>
+        <image name="选中" width="20" height="20"/>
+        <image name="默认" width="21" height="21"/>
     </resources>
 </document>

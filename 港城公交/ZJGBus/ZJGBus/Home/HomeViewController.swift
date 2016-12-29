@@ -37,10 +37,7 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         self.homeTableView.backgroundView = backgroundImageView
         self.homeTableView.layer.cornerRadius = 4
         self.homeTableView.layer.masksToBounds = true
-        
-        
-        
-        
+
         self.view.layer.insertSublayer(shadowLayer, below: self.homeTableView.layer)
         
         NotificationCenter.default.addObserver(self, selector:#selector(showBusOnlineInfo(notification:)), name: NSNotification.Name(rawValue: SHOWSEARCHRESULTNOTIFICATION), object: nil)
@@ -271,14 +268,30 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         self.present(viewController, animated: true, completion: nil)
        
     }
+    @IBOutlet weak var collectBtn: UIButton!
 
+    @IBAction func collectBusLineInfo(_ sender: UIButton)
+    {
+        sender.isSelected = !sender.isSelected
+        
+        
+        
+    }
+    
     //MARK: table datasource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if (busAllstation.currentLines.count != 0)
         {
+            collectBtn.isHidden = false
+            changeDirectionBtn.isHidden = false
             return (busAllstation.currentLines.count)
-        }else {return 0}
+        }else
+        {
+            collectBtn.isHidden = true
+            changeDirectionBtn.isHidden = true
+            return 0
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
