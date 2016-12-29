@@ -16,15 +16,11 @@ enum searchResultType
 }
 class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource
 {
-    let searchResultCellID = "searchResultCell"
-    let customSearchResultCellID = "customSearchResultCellID"
-    let BusInfoCellID = "BusInfoCell"
-    var currectRunPathIdForBusInfo = ""
     
+    var currectRunPathIdForBusInfo = ""
     var tableViewType = searchResultType.searchResultType
     var searchBar = UISearchBar()
     var resultTableView = UITableView(frame: CGRect.zero, style:.plain)
-    
     var busInfos = [BusInfoWithRunPathID]()
         {
             didSet
@@ -33,7 +29,6 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
                 {
                     tableViewType = .busInfoType
                     resultTableView.separatorStyle = .none
-                    resultTableView.backgroundColor = UIColor.groupTableViewBackground
                     self.resultTableView.reloadData()
                 }
             }
@@ -48,13 +43,11 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    
         self.congureUI()
         //修改选中图片
         let image = self.navigationController?.tabBarItem.selectedImage?.withRenderingMode(.alwaysOriginal)
-        self.navigationController?.tabBarItem.selectedImage = image;
-        
+        self.navigationController?.tabBarItem.selectedImage = image
+        resultTableView.separatorStyle = .none
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -71,10 +64,11 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         searchBar.backgroundColor = UIColor.clear
         searchBar.backgroundImage   = UIImage()
         searchBar.placeholder       = "请输入你要查询的线路"
+        
         //添加阴影
         searchBar.layer.shadowOffset = CGSize(width: 3, height: 3)
-        searchBar.layer.shadowColor = UIColor.lightGray.cgColor
-        searchBar.layer.shadowOpacity = 0.5
+        searchBar.layer.shadowColor = UIColor.ColorHex(hex: "f0f0f0").cgColor
+        searchBar.layer.shadowOpacity = 1
         searchBar.layer.shadowRadius = 3
         
         self.view.addSubview(searchBar)
@@ -82,8 +76,8 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         searchBar.snp.makeConstraints
         { (make) in
                 make.top.equalTo(self.view.snp.top).offset(20)
-                make.right.equalTo(self.view.snp.right).offset(-10)
-                make.left.equalTo(self.view.snp.left).offset(10)
+                make.right.equalTo(self.view.snp.right)
+                make.left.equalTo(self.view.snp.left)
         }
         
         //初始化搜索结果
@@ -93,8 +87,11 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         resultTableView.tableFooterView = UIView()
         resultTableView.keyboardDismissMode = .onDrag
         resultTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: searchResultCellID)
+        
         resultTableView.register(UINib.init(nibName:"SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: customSearchResultCellID)
         resultTableView.register(UINib.init(nibName:"BusLineInfoTableViewCell", bundle: nil), forCellReuseIdentifier: BusInfoCellID)
+        self.view.addSubview(resultTableView)
+        resultTableView.register(UINib.init(nibName:"BusLineInfoV2TableViewCell", bundle: nil), forCellReuseIdentifier: BusLineInfoV2CellID)
         self.view.addSubview(resultTableView)
         resultTableView.snp.makeConstraints
         { (make) in
@@ -111,12 +108,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        if resultTableView.separatorStyle == .none
-        {
-            resultTableView.separatorStyle = .singleLineEtched
-        }
-     
-        
+        resultTableView.separatorStyle = .none
         LineList.startRequestWith(searchBar.text, completionHandler:
         {lineList in
                 self.tableViewType = .searchResultType
@@ -131,7 +123,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
     {
         switch tableViewType
         {
-        case .busInfoType: return 150
+        case .busInfoType: return 120
         case .searchResultType: return 100
         }
         
@@ -147,7 +139,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             }else {return 0}
         }else
         {
-            return busInfos.count
+            return 1
         }
         
     }
@@ -169,8 +161,8 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             return cell
         }else
         {
-            let cell:BusLineInfoTableViewCell = tableView.dequeueReusableCell(withIdentifier: BusInfoCellID, for: indexPath) as! BusLineInfoTableViewCell
-            cell.BusInfo  = busInfos[(indexPath as NSIndexPath).row]
+            let cell:BusLineInfoV2TableViewCell = tableView.dequeueReusableCell(withIdentifier: BusLineInfoV2CellID, for: indexPath) as! BusLineInfoV2TableViewCell
+            cell.busInfos  = busInfos
             return cell
         }
         
@@ -186,7 +178,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         if tableViewType == .searchResultType
         {
             let busInfosQueue = DispatchQueue(label: "com.rockstar.businfosQueue",attributes: [])
-            _ = DispatchQueue.global(qos: DispatchQoS.QoSClass.utility)
+            _ = DispatchQueue.global(qos:.utility)//指定线程优先级
            
         //    busInfosQueue.setTarget(queue: globalBackgroundQueue)//改变优先级
             
@@ -197,37 +189,38 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
             busInfos.removeAll()
             BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[0])
             { (dataModel) in
-                busInfosQueue.async(execute: {
+                busInfosQueue.async(execute:{
                     
                    DispatchQueue.main.async(execute: { //返回主队列更新UI
                     //上下行1 dataModel数据model
                     self.busInfos.append(dataModel)
-                    
-                    print("1111")
-                    
                    })
                    
                 })
             }
             BusInfoWithRunPathID.startRequest(lineEnity.runPathId, flag:flags[1])
             { (dataModel) in
-                busInfosQueue.async(execute: {
-                    
-                    DispatchQueue.main.async(execute: {//返回主队列更新UI
+                busInfosQueue.async(execute:{
+                    DispatchQueue.main.async(execute:{//返回主队列更新UI
                         //上下行3 dataModel数据model
                         self.busInfos.append(dataModel)
-                        print("22222")
-
                     })
                 })
             }
         }else
         {
+            let cell = tableView.cellForRow(at: indexPath) as! BusLineInfoV2TableViewCell
             let busInfoDetailVC = BusInfoDetailViewController()
             busInfoDetailVC.runPathID = currectRunPathIdForBusInfo
-            busInfoDetailVC.currentIndex = (indexPath as NSIndexPath).row
+            busInfoDetailVC.currentIndex = cell.changeDirectionBtn.isSelected ? 1 : 0
             busInfoDetailVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(busInfoDetailVC, animated: true)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: SHOWSEARCHRESULTNOTIFICATION), object: self, userInfo:
+                ["runPathID":currectRunPathIdForBusInfo,
+                 "currentDirection":cell.changeDirectionBtn.isSelected ? 1 : 0,
+                 "BusInfos":busInfos])
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

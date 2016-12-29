@@ -4,5 +4,5 @@ target "ZJGBus" do
 pod 'Alamofire', '~> 4.2.0'
 pod 'SnapKit', '~> 3.0.2'
 pod 'ObjectMapper'
-pod 'SwiftMessages'
+
 end

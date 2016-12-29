@@ -39,6 +39,8 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
     }
     
     let busStationCellID = "busStationCellID"
+    let busStationV2CellID = "busStationV2CellID"
+    
     let onlineBusCellID = "onlineBusCellID"
     var busAllstation = BusAllStationEntity()
     {
@@ -52,6 +54,7 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
         super.viewDidLoad()
         stationInfosTableView.register(UINib.init(nibName:"BusStationTableViewCell", bundle:nil), forCellReuseIdentifier:busStationCellID)
         stationInfosTableView.register(UINib.init(nibName:"onlineBusTableViewCell", bundle:nil), forCellReuseIdentifier:onlineBusCellID)
+        stationInfosTableView.register(UINib(nibName:"BusStationV2TableViewCell",bundle:nil), forCellReuseIdentifier: busStationV2CellID)
         self.navigationItem.title = "211路"
         self.navigationItem.prompt = "路线详情"
         stationInfosTableView.tableFooterView = UIView()
@@ -74,10 +77,16 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
                }
                 let uniDataSource = UniDataSoure()
                 //uniDataSource.busOnlineInfo = UniDataSoure()
+                
                 uniDataSource.isStation = false
-               self.busAllstation.currentLines =  self.busAllstation.currentLinesFunc()
-               self.busAllstation.currentLines.insert(uniDataSource, at:5)
-                //self.busAllstation.currentLines().removeLast()
+                uniDataSource.busOnlineInfo = dataModel?.lists?[0]
+                self.busAllstation.currentLines =  self.busAllstation.currentLinesFunc()
+                
+                
+                //////这里写插入线上公交的代码
+                
+                //////
+                self.busAllstation.currentLines.insert(uniDataSource, at: 5)
                 self.stationInfosTableView.reloadData()
                 
                 print(self.busAllstation.currentLines.count)
@@ -96,20 +105,28 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if (busAllstation.currentLines[(indexPath as NSIndexPath).row]).isStation
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: busStationCellID) as! BusStationTableViewCell
-            cell.stationLab.text = (busAllstation.currentLines[(indexPath as NSIndexPath).row] ).stationInfo!.busStationName
+       
+            let cell = tableView.dequeueReusableCell(withIdentifier: busStationV2CellID) as! BusStationV2TableViewCell
+            if (busAllstation.currentLines[indexPath.row]).isStation
+            {
+                 cell.stationInfo = (busAllstation.currentLines[indexPath.row] ).stationInfo!
+            }else
+            {
+                
+            }
+        
+            cell.cellIndexPath = indexPath
+            cell.isTopOrBottomCell = false
+            cell.clearsContextBeforeDrawing = true
+            if indexPath.row == 0 || (indexPath.row == (busAllstation.currentLines.count-1))
+            {
+                cell.isTopOrBottomCell = true
+            }
+            cell.busWillCome = !((busAllstation.currentLines[indexPath.row]).isStation)
+            cell.setNeedsDisplay()
+        
             return cell
-        }else
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: onlineBusCellID) as! onlineBusTableViewCell
-//            let busOnlineInfo = (busAllstation.currentLines[indexPath.row] ).busOnlineInfo
-//            cell.plateNoLab.text = busOnlineInfo!.numberOfPlate
-//            cell.timeLab.text = self.calcutelate(busOnlineInfo!.gPSTime)
-//            cell.currentStationLab.text = busOnlineInfo?.busStationName
-            return cell
-        }
+     
     }
     func calcutelate(_ busGPSTime:String) -> String
     {
@@ -118,4 +135,5 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 59
     }
+   
 }

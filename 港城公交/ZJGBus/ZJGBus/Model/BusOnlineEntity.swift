@@ -29,6 +29,9 @@ class BusOnlineEntity: BaseEntity,Mappable
                 if let JSONData =  (DataResponse.result.value as? [String : Any])?["result"] as? [String : Any]
                 {
                     let busOnlineEntity = Mapper<BusOnlineEntity>().map(JSON: JSONData)
+                    
+                    
+                    
                     completionHandler(busOnlineEntity)
                 }
                 
@@ -48,13 +51,13 @@ class BusOnlineInfo: BaseEntity,Mappable
     var busStationId = ""
     func mapping(map: Map) {
         simno <- map["simno"]
-        voiceSn <- map["simno"]
-        numberOfPlate <- map["simno"]
-        shangxiaxing <- map["simno"]
-        outstate <- map["simno"]
-        gPSTime <- map["simno"]
-        busStationName <- map["simno"]
-        busStationId <- map["simno"]
+        voiceSn <- map["voiceSn"]
+        numberOfPlate <- map["numberOfPlate"]
+        shangxiaxing <- map["shangxiaxing"]
+        outstate <- map["outstate"]
+        gPSTime <- map["gPSTime"]
+        busStationName <- map["busStationName"]
+        busStationId <- map["busStationId"]
     }
     override init()
     {

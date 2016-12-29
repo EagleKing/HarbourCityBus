@@ -44,7 +44,7 @@ class BusStationTableViewCell: UITableViewCell {
         let bezier2Path = UIBezierPath()
         bezier2Path.move(to: CGPoint(x: 20.5, y: 35.5))
         bezier2Path.addLine(to: CGPoint(x: 20.5, y: 59.5))
-        UIColor.init(hex: "#888888").setStroke()
+        UIColor(hex: "#888888").setStroke()
         bezier2Path.lineWidth = 4
         bezier2Path.stroke()
     }

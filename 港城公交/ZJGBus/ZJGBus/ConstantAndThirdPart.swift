@@ -9,11 +9,15 @@
 import UIKit
 import Alamofire
 import SnapKit
-import SwiftMessages
+
 import ObjectMapper
 
 let phoneWidth = UIScreen.main.bounds.size.width
 let phoneHeight = UIScreen.main.bounds.size.height
 let isStartRequestKeyPath = "isStartRequest"
 let UniversalColorHexString = "#11cd6e"
-        
+
+let searchResultCellID = "searchResultCell"
+let customSearchResultCellID = "customSearchResultCellID"
+let BusInfoCellID = "BusInfoCell"
+let BusLineInfoV2CellID =  "BusLineInfoV2TableViewCell"

@@ -11,13 +11,17 @@ import Alamofire
 import ObjectMapper
 class BusAllStationEntity: BaseEntity,Mappable
 {
+    //数据模型属性
     var runPathName = ""
+    var xiaxing =  [StationInfo] ()
+    var shangxing =  [StationInfo] ()
+    
+    //添加属性
     var runPathId = ""
     var roundRunPath = ""
     var flag = ""
-    var xiaxing =  [StationInfo] ()
-    var shangxing =  [StationInfo] ()
     var currentLines = [UniDataSoure]()
+    
     required init?(map: Map) {}
     override init()
     {
@@ -31,10 +35,10 @@ class BusAllStationEntity: BaseEntity,Mappable
         flag <- map["flag"]
         xiaxing <- map["xiaxing"]
         shangxing <- map["shangxing"]
-        currentLines <- map["currentLines"]
     }
     func currentLinesFunc ()->[UniDataSoure]
     {
+        
             if flag == "1"
             {
                 if shangxing.count != 0

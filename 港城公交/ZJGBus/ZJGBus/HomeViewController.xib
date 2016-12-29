@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ZJGBus" customModuleProvider="target">
             <connections>
+                <outlet property="changeDirectionBtn" destination="WsF-Ei-8Kk" id="yV1-t4-Noj"/>
                 <outlet property="homeTableView" destination="XHv-2S-XYQ" id="9CQ-OQ-NDr"/>
                 <outlet property="searchBtn" destination="ATt-vA-g3R" id="mTd-Kf-P1Q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,8 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XHv-2S-XYQ">
-                    <rect key="frame" x="18" y="44" width="340" height="579"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XHv-2S-XYQ">
+                    <rect key="frame" x="20" y="44" width="335" height="563"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="86f-6W-52l"/>
@@ -31,10 +32,10 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5iC-zh-GUo">
-                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="612" width="374" height="55"/>
                     <subviews>
                         <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATt-vA-g3R">
-                            <rect key="frame" x="172" y="7" width="30" height="30"/>
+                            <rect key="frame" x="172" y="13" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="RG3-Du-mZz"/>
                                 <constraint firstAttribute="width" secondItem="ATt-vA-g3R" secondAttribute="height" multiplier="1:1" id="W0h-mD-UCt"/>
@@ -52,29 +53,41 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-Y1-PxK">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsF-Ei-8Kk">
+                    <rect key="frame" x="309" y="561" width="41" height="41"/>
+                    <state key="normal" image="往-按钮"/>
+                    <state key="selected" image="返-按钮"/>
+                    <connections>
+                        <action selector="changeDirection:" destination="-1" eventType="touchUpInside" id="fZt-hg-DqB"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5iC-zh-GUo" firstAttribute="centerX" secondItem="XHv-2S-XYQ" secondAttribute="centerX" id="8gr-5S-y1b"/>
+                <constraint firstAttribute="trailing" secondItem="WsF-Ei-8Kk" secondAttribute="trailing" constant="25" id="Dar-lC-0ZI"/>
                 <constraint firstAttribute="bottom" secondItem="5iC-zh-GUo" secondAttribute="bottom" id="FKl-Mf-LYl"/>
-                <constraint firstItem="5iC-zh-GUo" firstAttribute="top" secondItem="XHv-2S-XYQ" secondAttribute="bottom" id="RZk-S1-Hh9"/>
+                <constraint firstItem="5iC-zh-GUo" firstAttribute="top" secondItem="WsF-Ei-8Kk" secondAttribute="bottom" constant="10" id="Oqz-bJ-Ntd"/>
+                <constraint firstItem="5iC-zh-GUo" firstAttribute="top" secondItem="XHv-2S-XYQ" secondAttribute="bottom" constant="5" id="RZk-S1-Hh9"/>
                 <constraint firstItem="kt4-Y1-PxK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Scx-sr-Kmb"/>
-                <constraint firstItem="XHv-2S-XYQ" firstAttribute="top" secondItem="kt4-Y1-PxK" secondAttribute="bottom" id="XSF-gf-1kc"/>
-                <constraint firstAttribute="trailing" secondItem="XHv-2S-XYQ" secondAttribute="trailing" constant="17.5" id="ggD-4g-x23"/>
+                <constraint firstItem="XHv-2S-XYQ" firstAttribute="top" secondItem="kt4-Y1-PxK" secondAttribute="bottom" constant="5" id="XSF-gf-1kc"/>
+                <constraint firstAttribute="trailing" secondItem="XHv-2S-XYQ" secondAttribute="trailing" constant="20" id="ggD-4g-x23"/>
                 <constraint firstItem="5iC-zh-GUo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lCa-Up-bR7"/>
                 <constraint firstItem="kt4-Y1-PxK" firstAttribute="trailing" secondItem="5iC-zh-GUo" secondAttribute="trailing" id="o10-Wq-xmo"/>
                 <constraint firstItem="XHv-2S-XYQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="ppQ-o2-FJJ"/>
-                <constraint firstItem="XHv-2S-XYQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17.5" id="uh7-hr-cE6"/>
+                <constraint firstItem="XHv-2S-XYQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="uh7-hr-cE6"/>
                 <constraint firstItem="kt4-Y1-PxK" firstAttribute="leading" secondItem="5iC-zh-GUo" secondAttribute="leading" id="xir-V8-XNP"/>
-                <constraint firstAttribute="bottom" secondItem="XHv-2S-XYQ" secondAttribute="bottom" constant="44" id="xzI-Ug-EkB"/>
+                <constraint firstAttribute="bottom" secondItem="XHv-2S-XYQ" secondAttribute="bottom" constant="60" id="xzI-Ug-EkB"/>
             </constraints>
             <point key="canvasLocation" x="-95.5" y="32.5"/>
         </view>
     </objects>
     <resources>
+        <image name="往-按钮" width="41" height="41"/>
         <image name="搜索" width="14" height="14"/>
+        <image name="返-按钮" width="41" height="41"/>
     </resources>
 </document>

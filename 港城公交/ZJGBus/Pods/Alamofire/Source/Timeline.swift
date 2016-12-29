@@ -97,7 +97,7 @@ extension Timeline: CustomStringConvertible {
             "\"Serialization Duration\": " + serializationDuration + " secs",
             "\"Total Duration\": " + totalDuration + " secs"
         ]
-        
+
         return "Timeline: { " + timings.joined(separator: ", ") + " }"
     }
 }

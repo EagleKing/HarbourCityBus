@@ -2,20 +2,17 @@ PODS:
   - Alamofire (4.2.0)
   - ObjectMapper (2.2.2)
   - SnapKit (3.0.2)
-  - SwiftMessages (3.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.2.0)
   - ObjectMapper
   - SnapKit (~> 3.0.2)
-  - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
-  SwiftMessages: 1216ea6bdf8d92ff0f6f98a23e5442711b1e71ac
 
-PODFILE CHECKSUM: 28ede4996ec15babfb10d01420fdd62421e85f85
+PODFILE CHECKSUM: 9b9d97e2d6d79c741ad31c4422acf92d9873c231
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.2.0.beta.1
