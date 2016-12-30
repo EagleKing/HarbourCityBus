@@ -4,7 +4,7 @@
 ![](https://img.shields.io/badge/HarbourCityBus-v1.0-blue.svg)
 ## Introduction
 
-The original Zhangjiagang public transport UI does not look good,so I do a personal version.
+The original Zhangjiagang public transport app UI does not look good,so I do a personal version.
 
 ## UI 
 
