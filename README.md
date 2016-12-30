@@ -1,6 +1,7 @@
 # 港城公交
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/l/AFNetworking.svg)]()
+![](https://img.shields.io/badge/HarbourCityBus-v1.0-blue.svg)
 ## Introduction
 
 The original Zhangjiagang public transport UI does not look good,so I do a personal version.
