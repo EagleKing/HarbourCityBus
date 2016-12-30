@@ -246,7 +246,6 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         shadowLayer.masksToBounds = false
         shadowLayer.frame = self.homeTableView.frame
         
-        
     }
     override func viewWillAppear(_ animated: Bool)
     {

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
+         Bugly.start(withAppId: "1ff393ae75")
         if #available(iOS 10, *)
         {
             
