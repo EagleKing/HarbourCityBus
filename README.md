@@ -1,5 +1,6 @@
 # 港城公交
-
+![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
+[![CocoaPods](https://img.shields.io/cocoapods/l/AFNetworking.svg)]()
 ## 背景
 
 原来张家港公交的 UI 不好看，就做了一个个人版本。
