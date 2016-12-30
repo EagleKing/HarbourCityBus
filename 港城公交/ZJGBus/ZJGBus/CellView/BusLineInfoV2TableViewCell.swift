@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 class BusLineInfoV2TableViewCell: UITableViewCell {
 
+ 
     @IBOutlet weak var intervalLab: UILabel!
     @IBOutlet weak var startStationLab: UILabel!//首站
     @IBOutlet weak var endStationLab: UILabel!//末战

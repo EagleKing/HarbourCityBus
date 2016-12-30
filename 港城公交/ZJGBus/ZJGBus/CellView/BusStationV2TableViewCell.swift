@@ -51,7 +51,7 @@ class BusStationV2TableViewCell: UITableViewCell {
         didSet
         {
             let padding = 6
-            print("\(stationInfo?.busStationName)")
+            
             if (cellIndexPath?.row)!%2 == 0 // 是偶数,显示站点名在左边
             {
                 
@@ -90,12 +90,28 @@ class BusStationV2TableViewCell: UITableViewCell {
     let leftShdowLayer = CALayer()
     let rightShdowLayer = CALayer()
     let normalColor = UIColor(hex: "cccccc")
+    var nextStationLabColor : UIColor = UIColor(hex: "4d73ff")
+    
     var stationInfo :StationInfo?
     {
         willSet
         {
-            
+        
           
+        }
+    }
+    var flag : String?
+    {
+        willSet
+        {
+            print("\(newValue)")
+            if Int(newValue!) == 1
+            {
+                nextStationLabColor = UIColor(hex: "4d73ff")
+            }else
+            {
+                nextStationLabColor = UIColor(hex: "ff6172")
+            }
         }
     }
     
@@ -141,8 +157,7 @@ class BusStationV2TableViewCell: UITableViewCell {
         //给标签加效果
         leftShdowLayer.shadowOffset = CGSize(width: 0, height: 3)
         leftShdowLayer.shadowOpacity = 0.7
-        leftShdowLayer.backgroundColor = UIColor(hex: "ff6172").cgColor
-        leftShdowLayer.shadowColor = UIColor(hex: "ff6172").cgColor
+        
         leftShdowLayer.cornerRadius = 3
         self.contentView.layer.insertSublayer(leftShdowLayer, below: nextStationNotifyLab.layer)
         nextStationNotifyLab.layer.cornerRadius = 3
@@ -150,8 +165,7 @@ class BusStationV2TableViewCell: UITableViewCell {
         
         rightShdowLayer.shadowOffset = CGSize(width: 0, height: 3)
         rightShdowLayer.shadowOpacity = 0.7
-        rightShdowLayer.backgroundColor = UIColor(hex: "4d73ff").cgColor
-        rightShdowLayer.shadowColor = UIColor(hex: "4d73ff").cgColor
+        
         rightShdowLayer.cornerRadius = 3
         self.contentView.layer.insertSublayer(rightShdowLayer, below: nextStationNotifyRightLab.layer)
         
@@ -174,6 +188,14 @@ class BusStationV2TableViewCell: UITableViewCell {
     }
     override func draw(_ rect: CGRect)
     {
+        //根据上下行配置颜色
+        nextStationNotifyLab.backgroundColor = nextStationLabColor
+        leftShdowLayer.backgroundColor = nextStationLabColor.cgColor
+        leftShdowLayer.shadowColor = nextStationLabColor.cgColor
+        
+        nextStationNotifyRightLab.backgroundColor = nextStationLabColor
+        rightShdowLayer.backgroundColor = nextStationLabColor.cgColor
+        rightShdowLayer.shadowColor = nextStationLabColor.cgColor
         
         let normalWidth :CGFloat = 8
         
@@ -199,9 +221,9 @@ class BusStationV2TableViewCell: UITableViewCell {
             {
                //绘制在左边
                linkLinePath = UIBezierPath(rect: CGRect(x:centerLabel.center.x, y: centerLabel.center.y, width: centerLabel.center.x - nextStationNotifyLab.frame.minX, height: 1))
-                UIColor(hex: "4d73ff").setFill()
+                nextStationLabColor.setFill()
                 linkLinePath?.fill()
-                centerLabel.backgroundColor = UIColor(hex: "4d73ff")
+                centerLabel.backgroundColor = nextStationLabColor
             
                 
             }else
@@ -209,10 +231,10 @@ class BusStationV2TableViewCell: UITableViewCell {
                 
                 //绘制在右边
                 linkLinePath = UIBezierPath(rect: CGRect(x:nextStationNotifyLab.frame.maxX, y: nextStationNotifyLab.center.y, width: centerLabel.center.x - nextStationNotifyLab.frame.maxX, height: 1))
-                UIColor(hex: "ff6172").setFill()
+                nextStationLabColor.setFill()
                 linkLinePath?.fill()
                 
-                centerLabel.backgroundColor = UIColor(hex: "ff6172")
+                centerLabel.backgroundColor = nextStationLabColor
            
                 
             }
@@ -232,12 +254,12 @@ class BusStationV2TableViewCell: UITableViewCell {
             {
                 if (cellIndexPath?.row)!%2 == 0
                 {
-                    centerLabel.backgroundColor = UIColor(hex: "4d73ff")
-                    centerLabel.layer.borderColor  = UIColor(hex: "4d73ff").cgColor
+                    centerLabel.backgroundColor = nextStationLabColor
+                    centerLabel.layer.borderColor  = nextStationLabColor.cgColor
                 }else
                 {
-                    centerLabel.backgroundColor = UIColor(hex: "ff6172")
-                    centerLabel.layer.borderColor  = UIColor(hex: "ff6172").cgColor
+                    centerLabel.backgroundColor = nextStationLabColor
+                    centerLabel.layer.borderColor  = nextStationLabColor.cgColor
                 }
             }else
             {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 let SHOWSEARCHRESULTNOTIFICATION = "showSearchResultNotification"
 
 class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource,CAAnimationDelegate
@@ -71,8 +71,6 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
             {
                 for i in 0 ..< stationNameCount
                 {
-                    print(i)
-                    print("\(currentBusEntity.busStationName ) ++++++++ \((busAllstation.currentLines[i]).stationInfo?.busStationName)")
                     
                     if let busStationName = (busAllstation.currentLines[i]).stationInfo?.busStationName
                     {
@@ -108,7 +106,13 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         }
         self.getBusLineInfo()
     }
-    
+
+    @IBAction func goToCollections(_ sender: UIButton)
+    {
+        
+        self.navigationController?.pushViewController(CollectionsViewController(), animated: true)
+        
+    }
     let flags = ["1","3"]
     var runPathID = ""
     var currentIndex = 0
@@ -120,10 +124,10 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
     var busOnlineRequestTimer : Timer?
     func busOnlineRequest()
     {
-        print("\(Date())")
+
         BusOnlineEntity.startRequestWith(self.runPathID, flag:self.flags[self.currentIndex], completionHandler:
             { (dataModel) in
-                print(self.busAllstation.currentLines.count)
+                
                 if (dataModel?.lists?.count != 0)
                 {
                     
@@ -146,6 +150,35 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         runPathID = userInfo?["runPathID"] as! String
         currentIndex = userInfo?["currentDirection"] as! Int
         busInfos = userInfo?["BusInfos"] as? Array
+        
+        changeDirectionBtn.isSelected = currentIndex == 1 ? true : false
+        
+        //搜索数据库，是否已经收藏
+        let fetchRequest = NSFetchRequest<BusInfoEntity>(entityName: "BusInfoEntity")
+        let predicate = NSPredicate(format: "runPathName = %@", (busInfos?[0].runPathName)!) // 查询条件
+        fetchRequest.predicate = predicate
+        
+        do {
+            
+            let entities =  try delegate.managedObjectContext?.fetch(fetchRequest)
+            
+            
+            if entities?.count != 0
+            {
+                collectBtn.isSelected = true
+            }else
+            {
+                collectBtn.isSelected = false
+            }
+            
+        } catch let error as NSError
+        {
+            
+            fatalError("Unresolved error \(error), \(error.userInfo)")
+        }
+        
+        
+        
         self.getBusLineInfo()
     }
     func getBusLineInfo() // 获取路线信息，以及线上公交信息
@@ -164,7 +197,7 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
             
             BusOnlineEntity.startRequestWith(self.runPathID, flag:self.flags[self.currentIndex], completionHandler:
                 { (dataModel) in
-                    print(self.busAllstation.currentLines.count)
+                    
                     if (dataModel?.lists?.count != 0)
                     {
                         
@@ -274,8 +307,55 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
     {
         sender.isSelected = !sender.isSelected
         
-        
-        
+        if sender.isSelected
+        { // 如果选中则插入数据库
+            
+            for busInfo in busInfos!
+            {
+                let busInfoEntity = NSEntityDescription.insertNewObject(forEntityName: "BusInfoEntity", into: delegate.managedObjectContext!) as! BusInfoEntity
+                
+                busInfoEntity.runPathID = runPathID
+                busInfoEntity.busInterval = busInfo.busInterval
+                busInfoEntity.endStation = busInfo.endStation
+                busInfoEntity.endTime = busInfo.endTime
+                busInfoEntity.endTime1 = busInfo.endTime1
+                busInfoEntity.runFlag = busInfo.runFlag
+                busInfoEntity.runPathName = busInfo.runPathName
+                busInfoEntity.startStation = busInfo.startStation
+                busInfoEntity.startTime = busInfo.startTime
+                busInfoEntity.startTime1 = busInfo.startTime1
+                
+                delegate.saveContext()
+            }
+        } else
+        {//从数据库中删除
+            
+            let fetchRequest = NSFetchRequest<BusInfoEntity>(entityName: "BusInfoEntity")
+            let predicate = NSPredicate(format: "runPathName = %@", (busInfos?[0].runPathName)!) // 查询条件
+            fetchRequest.predicate = predicate
+            
+            do {
+                
+             let entities =  try delegate.managedObjectContext?.fetch(fetchRequest)
+               
+            
+                for busInfoEntity in entities!
+                {
+                    print("\(busInfoEntity.runPathName)")
+                   delegate.managedObjectContext?.delete(busInfoEntity)
+                }
+                delegate.saveContext()
+                
+            } catch let error as NSError
+            {
+                
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+            
+            
+            
+        }
+
     }
     
     //MARK: table datasource
@@ -299,7 +379,7 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         
         
         cell.stationInfo = (busAllstation.currentLines[indexPath.row] ).stationInfo
-     
+        cell.flag = busAllstation.flag
         
         cell.cellIndexPath = indexPath
         cell.isTopOrBottomCell = false
@@ -311,8 +391,12 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         }
         
         cell.busWillCome = !((busAllstation.currentLines[indexPath.row]).isStation)
+        
         cell.setNeedsDisplay()
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        homeTableView.deselectRow(at: indexPath, animated: true)
     }
 }

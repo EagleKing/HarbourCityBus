@@ -20,6 +20,10 @@ class BusInfoWithRunPathID: BaseEntity,Mappable
     var endStation :String = ""
     var endTime :String = ""
     var startTime1 :String = ""
+    
+    
+    //额外添加
+    var runPathID: String?
     required init?(map: Map) {
     }
     override init()

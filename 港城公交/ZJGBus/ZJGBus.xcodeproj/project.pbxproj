@@ -37,6 +37,9 @@
 		A974B7C51E127F7C00476E0D /* EdgeInsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974B7C41E127F7C00476E0D /* EdgeInsetsLabel.swift */; };
 		A974B7CE1E13B08E00476E0D /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A974B7CD1E13B08E00476E0D /* ZFModalTransitionAnimator.m */; };
 		A99128331E149C2100D39ACB /* homeTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99128321E149C2100D39ACB /* homeTableHeaderView.xib */; };
+		A99128571E14CF7500D39ACB /* CollectionsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A99128551E14CF7500D39ACB /* CollectionsDataModel.xcdatamodeld */; };
+		A99128631E14E87E00D39ACB /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99128611E14E87E00D39ACB /* CollectionsViewController.swift */; };
+		A99128641E14E87E00D39ACB /* CollectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99128621E14E87E00D39ACB /* CollectionsViewController.xib */; };
 		A9CDD1991DFFEC6900AD132D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDD1981DFFEC6900AD132D /* HomeViewController.swift */; };
 		A9CDD19D1E010F7300AD132D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDD19C1E010F7300AD132D /* UIColorExtension.swift */; };
 		A9CDD1A01E0115BA00AD132D /* BusLineInfoV2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CDD19E1E0115BA00AD132D /* BusLineInfoV2TableViewCell.swift */; };
@@ -95,6 +98,10 @@
 		A974B7CC1E13B08E00476E0D /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		A974B7CD1E13B08E00476E0D /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		A99128321E149C2100D39ACB /* homeTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableHeaderView.xib; sourceTree = "<group>"; };
+		A99128561E14CF7500D39ACB /* CollectionsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CollectionsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		A99128611E14E87E00D39ACB /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		A99128621E14E87E00D39ACB /* CollectionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionsViewController.xib; sourceTree = "<group>"; };
+		A99128651E1504DE00D39ACB /* CollectionsDataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CollectionsDataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		A9CDD1981DFFEC6900AD132D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A9CDD19C1E010F7300AD132D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A9CDD19E1E0115BA00AD132D /* BusLineInfoV2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineInfoV2TableViewCell.swift; sourceTree = "<group>"; };
@@ -179,11 +186,13 @@
 				A95BF78D1D5C4C040070C2F1 /* BusInfoDetailViewController.swift */,
 				A95BF78E1D5C4C040070C2F1 /* BusInfoDetailViewController.xib */,
 				A973641A1D51BFB900194CE7 /* ViewController.swift */,
+				A99128601E14E77C00D39ACB /* Collections */,
 				A9CDD1971DFFEC6900AD132D /* Home */,
 				A9CDD19B1E00DB1800AD132D /* OldVC */,
 				A973641F1D51BFB900194CE7 /* Assets.xcassets */,
 				A97364211D51BFB900194CE7 /* LaunchScreen.storyboard */,
 				A97364241D51BFB900194CE7 /* Info.plist */,
+				A99128551E14CF7500D39ACB /* CollectionsDataModel.xcdatamodeld */,
 			);
 			path = ZJGBus;
 			sourceTree = "<group>";
@@ -212,6 +221,15 @@
 				A974B7CB1E13B08E00476E0D /* ZJGBus-Bridging-Header.h */,
 			);
 			path = ThirdPart;
+			sourceTree = "<group>";
+		};
+		A99128601E14E77C00D39ACB /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				A99128611E14E87E00D39ACB /* CollectionsViewController.swift */,
+				A99128621E14E87E00D39ACB /* CollectionsViewController.xib */,
+			);
+			path = Collections;
 			sourceTree = "<group>";
 		};
 		A9CDD1971DFFEC6900AD132D /* Home */ = {
@@ -324,6 +342,7 @@
 				A974B7C31E12455400476E0D /* BusStationV2TableViewCell.xib in Resources */,
 				A95BF7961D5C5B1E0070C2F1 /* BusStationTableViewCell.xib in Resources */,
 				A95BF79C1D5DAAE50070C2F1 /* onlineBusTableViewCell.xib in Resources */,
+				A99128641E14E87E00D39ACB /* CollectionsViewController.xib in Resources */,
 				A917CAB61D59C4BD00350647 /* BusLineInfoTableViewCell.xib in Resources */,
 				A9CDD1A11E0115BA00AD132D /* BusLineInfoV2TableViewCell.xib in Resources */,
 				A91524011DFE6C80002CAEE6 /* HomeViewController.xib in Resources */,
@@ -394,6 +413,7 @@
 				A9CDD1991DFFEC6900AD132D /* HomeViewController.swift in Sources */,
 				A95BF7921D5C4F1E0070C2F1 /* BusAllStationEntity.swift in Sources */,
 				A917CAA91D59748E00350647 /* SearchResultTableViewCell.swift in Sources */,
+				A99128571E14CF7500D39ACB /* CollectionsDataModel.xcdatamodeld in Sources */,
 				A9CDD19D1E010F7300AD132D /* UIColorExtension.swift in Sources */,
 				A917CA941D59719E00350647 /* BaseViewController.swift in Sources */,
 				A917CAB21D59B88D00350647 /* BusInfoWithRunPathID.swift in Sources */,
@@ -402,6 +422,7 @@
 				A974B7CE1E13B08E00476E0D /* ZFModalTransitionAnimator.m in Sources */,
 				A97364191D51BFB900194CE7 /* AppDelegate.swift in Sources */,
 				A95BF7951D5C5B1E0070C2F1 /* BusStationTableViewCell.swift in Sources */,
+				A99128631E14E87E00D39ACB /* CollectionsViewController.swift in Sources */,
 				A95BF79B1D5DAAE50070C2F1 /* onlineBusTableViewCell.swift in Sources */,
 				A9DA8F381DE323AA009F1BBB /* Extensions.swift in Sources */,
 				A973642F1D51C65E00194CE7 /* BaseEntity.swift in Sources */,
@@ -466,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -507,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -586,6 +607,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A99128551E14CF7500D39ACB /* CollectionsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A99128651E1504DE00D39ACB /* CollectionsDataModel 2.xcdatamodel */,
+				A99128561E14CF7500D39ACB /* CollectionsDataModel.xcdatamodel */,
+			);
+			currentVersion = A99128651E1504DE00D39ACB /* CollectionsDataModel 2.xcdatamodel */;
+			path = CollectionsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A973640D1D51BFB900194CE7 /* Project object */;
 }

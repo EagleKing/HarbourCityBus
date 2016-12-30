@@ -34,7 +34,7 @@ class BaseViewController: UIViewController,UIGestureRecognizerDelegate {
         
         //添加右滑返回
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.hidesBarsOnSwipe = true
+        
         
         
     }

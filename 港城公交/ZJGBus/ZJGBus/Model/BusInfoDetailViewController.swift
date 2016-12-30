@@ -11,7 +11,7 @@ import UIKit
 class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource
 {
     @IBOutlet weak var stationInfosTableView: UITableView!
-    var runPathID = ""
+    var runPathID  = ""
     let flags = ["1","3"]
     var currentIndex = 0
 
@@ -39,7 +39,7 @@ class BusInfoDetailViewController: BaseViewController,UITableViewDelegate,UITabl
     }
     
     let busStationCellID = "busStationCellID"
-    let busStationV2CellID = "busStationV2CellID"
+    
     
     let onlineBusCellID = "onlineBusCellID"
     var busAllstation = BusAllStationEntity()

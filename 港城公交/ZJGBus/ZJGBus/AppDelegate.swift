@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
         let navgationController  = UINavigationController(rootViewController: HomeViewController())
+        navgationController.setNavigationBarHidden(true, animated: true)
         self.window?.rootViewController = navgationController
         self.window?.makeKeyAndVisible()
         return true
@@ -103,7 +104,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
     @available(iOS 8.0,*)
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = Bundle.main.url(forResource: "HitList", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: "CollectionsDataModel", withExtension: "momd")!
+        
+        
+        
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     @available(iOS 8.0,*)
@@ -111,13 +115,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("HitList.sqlite")
+        let url = self.applicationDocumentsDirectory.appendingPathComponent("CollectionsDataModel.sqlite")
       //  var error: Error? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         
         do
         {
-            try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: [NSMigratePersistentStoresAutomaticallyOption: true,NSInferMappingModelAutomaticallyOption: true])
         }catch let error as NSError
         {
             coordinator = nil
@@ -150,21 +154,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
     // MARK: - Core Data Saving support
     
     func saveContext () {
-        if #available(iOS 10, *)
-        {
-            let context = persistentContainer.viewContext
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
-            }
-        }else
-        {
+//        if #available(iOS 10, *)
+//        {
+//            let context = persistentContainer.viewContext
+//            if context.hasChanges {
+//                do {
+//                    try context.save()
+//                } catch {
+//                    // Replace this implementation with code to handle the error appropriately.
+//                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                    let nserror = error as NSError
+//                    print("Unresolved error \(nserror), \(nserror.userInfo)")
+//                }
+//            }
+//        }else
+//        {
             if let context = self.managedObjectContext {
                
                 if context.hasChanges {
@@ -174,11 +178,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UITabBarControllerDelegate
                         // Replace this implementation with code to handle the error appropriately.
                         // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                         let nserror = error as NSError
-                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                        print("Unresolved error \(nserror), \(nserror.userInfo)")
                     }
                 }
             }
-        }
+       // }
         
     }
     

@@ -47,6 +47,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         //修改选中图片
         let image = self.navigationController?.tabBarItem.selectedImage?.withRenderingMode(.alwaysOriginal)
         self.navigationController?.tabBarItem.selectedImage = image
+        resultTableView.backgroundView = UIImageView(image:#imageLiteral(resourceName: "搜索结果") )
         resultTableView.separatorStyle = .none
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -210,6 +211,7 @@ class ViewController: BaseViewController,UISearchBarDelegate,UITableViewDelegate
         }else
         {
             let cell = tableView.cellForRow(at: indexPath) as! BusLineInfoV2TableViewCell
+            
             let busInfoDetailVC = BusInfoDetailViewController()
             busInfoDetailVC.runPathID = currectRunPathIdForBusInfo
             busInfoDetailVC.currentIndex = cell.changeDirectionBtn.isSelected ? 1 : 0

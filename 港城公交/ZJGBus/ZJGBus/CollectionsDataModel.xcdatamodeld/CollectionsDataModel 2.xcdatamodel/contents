@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BusInfoEntity" representedClassName="BusInfoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="busInterval" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endStation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endTime1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runFlag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runPathID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runPathName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startStation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTime1" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BusInfoEntity" positionX="-63" positionY="-18" width="128" height="195"/>
+    </elements>
+</model>

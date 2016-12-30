@@ -21,3 +21,7 @@ let searchResultCellID = "searchResultCell"
 let customSearchResultCellID = "customSearchResultCellID"
 let BusInfoCellID = "BusInfoCell"
 let BusLineInfoV2CellID =  "BusLineInfoV2TableViewCell"
+let busStationV2CellID = "busStationV2CellID"
+
+let delegate = UIApplication.shared.delegate as! AppDelegate
+
