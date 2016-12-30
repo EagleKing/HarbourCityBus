@@ -1,6 +1,5 @@
 # 港城公交
-
-
+同事说张家港公交的页面 UI too ugly，然后...
 <table>
 <tr>
 <td><img src="https://github.com/EagleKing/HarbourCityBus/blob/master/MarkdownImg/Simulator%20Screen%20Shot%202016年12月29日%20上午9.59.43.png"/></td>
