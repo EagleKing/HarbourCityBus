@@ -1,11 +1,11 @@
 # 港城公交
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/l/AFNetworking.svg)]()
-## 背景
+## Introduction
 
-原来张家港公交的 UI 不好看，就做了一个个人版本。
+The original Zhangjiagang public transport UI does not look good,so I do a personal version.
 
-## 页面 UI 
+## UI 
 
 <table>
 <tr>
