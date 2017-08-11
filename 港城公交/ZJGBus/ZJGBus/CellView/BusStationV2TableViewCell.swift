@@ -104,7 +104,7 @@ class BusStationV2TableViewCell: UITableViewCell {
     {
         willSet
         {
-            print("\(newValue)")
+            print("\(String(describing: newValue))")
             if Int(newValue!) == 1
             {
                 nextStationLabColor = UIColor(hex: "4d73ff")

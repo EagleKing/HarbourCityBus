@@ -340,7 +340,7 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
             
                 for busInfoEntity in entities!
                 {
-                    print("\(busInfoEntity.runPathName)")
+                    print("\(String(describing: busInfoEntity.runPathName))")
                    delegate.managedObjectContext?.delete(busInfoEntity)
                 }
                 delegate.saveContext()
